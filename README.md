@@ -1,16 +1,17 @@
 # Tarea 1 | Entrega Parcial 2
 
-Structure
-├── score/        Score trait (chips, multiplier, total)
-├── rank/         Rank hierarchy — Ace to King, classified as Even, Odd, or Figure
-├── suit/         Four standard suits
-├── card/         TCard / ACard / Card — a playing card combining Rank and Suit
-├── joker/        TJoker / AJoker and four concrete Jokers
-├── hand/         TCardCollection / AHand / Hand — holds cards and jokers
-└── combination/  TCombination / ACombination and six poker combinations (To be done based on test suite)
+Project structure:
+
+score/        Score trait (chips, multiplier, total)
+rank/         Rank hierarchy — Ace to King, classified as Even, Odd, or Figure
+suit/         Four standard suits
+card/         TCard / ACard / Card — a playing card combining Rank and Suit
+joker/        TJoker / AJoker and four concrete Jokers
+hand/         TCardCollection / AHand / Hand — holds cards and jokers
+combination/  TCombination / ACombination and six poker combinations (To be done based on test suite)
 
 test/
-└── mirrors the src layout, one test suite per package
+mirrors the src layout, one test suite per package
 
 
 ----Score---
@@ -42,11 +43,8 @@ Even Steven — played even-ranked cards each give +4 chips
 Scary Face — played face cards each give +30 chips
 
 Hand
-
 A Hand holds a collection of Cards and Jokers. Cards and jokers are placed individually and retrieved by index or as a full list.
 
 Combinations
-
 Six poker combinations evaluated in priority order.
-
 Note: The project has yet to be documented. This will be done pretty soon hopefully (aaaaa)
