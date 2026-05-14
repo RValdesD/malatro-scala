@@ -1,5 +1,6 @@
 package cl.uchile.dcc
 package joker
+
 /**
  * Represents and abstract base of a joker card.
  *

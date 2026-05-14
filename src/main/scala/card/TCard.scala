@@ -30,5 +30,3 @@ trait TCard extends Ordered[TCard]:
    *   positive value if this card is greater than `that`
    */
   def compare(that: TCard): Int
-
-
