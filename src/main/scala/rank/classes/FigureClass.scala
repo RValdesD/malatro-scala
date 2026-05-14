@@ -3,6 +3,10 @@ package rank.classes
 
 import rank.RankClass
 
-class FigureClass extends RankClass {
+/**
+ * Represents the classification for face-card ranks.
+ */
+class FigureClass extends RankClass:
+
+  /** @return textual representation of this rank class */
   override def toString: String = "Figure"
-}
