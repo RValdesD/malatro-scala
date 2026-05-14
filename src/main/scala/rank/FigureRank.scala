@@ -3,7 +3,7 @@ package rank
 import rank.classes.FigureClass
 
 /**
- * Represents a face-card rank.
+ * Represents a figure rank.
  *
  * @param name name of the rank
  */

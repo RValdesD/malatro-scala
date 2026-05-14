@@ -2,7 +2,7 @@ package cl.uchile.dcc
 package score
 
 /**
- * Represents a score consisting of chips and a multiplier.
+ * Represents a score consisting of chips + multiplier.
  *
  * The total score is computed as the product of both values.
  */
