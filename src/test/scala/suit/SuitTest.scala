@@ -42,7 +42,7 @@ class SuitTest extends FunSuite {
   test("Each suit name matches its identity") {
     assertEquals(new Hearts().name, "Hearts")
     assertEquals(new Spades().name, "Spades")
-    assertEquals(new Clover().name, "Clover")
+    assertEquals(new Clovers().name, "Clover")
     assertEquals(new Diamonds().name, "Diamonds")
   }
 
