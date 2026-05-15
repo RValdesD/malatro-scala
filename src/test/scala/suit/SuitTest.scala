@@ -38,4 +38,17 @@ class SuitTest extends FunSuite {
     assertEquals(new Clovers().toString,   "Clovers")
     assertEquals(new Diamonds().toString, "Diamonds")
   }
+
+  test("Each suit name matches its identity") {
+    assertEquals(new Hearts().name, "Hearts")
+    assertEquals(new Spades().name, "Spades")
+    assertEquals(new Clover().name, "Clover")
+    assertEquals(new Diamonds().name, "Diamonds")
+  }
+
+  test("Suit instances are independent — same type, same name") {
+    val heartsA = new Hearts
+    val heartsB = new Hearts
+    assertEquals(heartsA.name, heartsB.name)
+  }
 }

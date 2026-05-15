@@ -14,7 +14,7 @@ class JokerTest extends FunSuite {
   /**
    * Tests that GreedyJoker returns the correct name and description.
    *
-   * Verifies both `getName` and `description` for the GreedyJoker type.
+   * Verifies both getName and description for the GreedyJoker type.
    */
   test("GreedyJoker getName and description") {
     val greedy = new GreedyJoker
@@ -25,7 +25,7 @@ class JokerTest extends FunSuite {
   /**
    * Tests that DeviousJoker returns the correct name and description.
    *
-   * Verifies both `getName` and `description` for the DeviousJoker type.
+   * Verifies getName and escription for the DeviousJoker type.
    */
   test("DeviousJoker getName and description") {
     val devious = new DeviousJoker
@@ -47,7 +47,7 @@ class JokerTest extends FunSuite {
   /**
    * Tests that ScaryFace returns the correct name and description.
    *
-   * Verifies both `getName` and `description` for the ScaryFace type.
+   * Verifies both getName and description for the ScaryFace type.
    */
   test("ScaryFace getName and description") {
     val scary = new ScaryFace
@@ -68,10 +68,8 @@ class JokerTest extends FunSuite {
 
   /**
    * Tests that jokers of different types are not equal.
-   *
-   * Verifies that the `equals` method distinguishes between jokers
-   * with different names.
    */
+
   test("Joker equals - different jokers are not equal") {
     val greedy = new GreedyJoker
     val scary  = new ScaryFace
@@ -81,7 +79,7 @@ class JokerTest extends FunSuite {
   /**
    * Tests that jokers are sorted alphabetically by name.
    *
-   * Verifies the `Ordered` trait implementation across all four joker types.
+   * Verifies the Ordered trait implementation across all four joker types.
    */
   test("Joker compare - sorted alphabetically by name") {
     val sorted = List(new ScaryFace, new GreedyJoker, new EvenSteven, new DeviousJoker).sorted
@@ -93,13 +91,24 @@ class JokerTest extends FunSuite {
 
   /**
    * Tests that toString includes both the name and the description.
-   *
-   * Verifies the format produced by `AJoker.toString`.
    */
   test("Joker toString includes name and description") {
     val scary = new ScaryFace
     assert(scary.toString.contains("Scary Face"))
     assert(scary.toString.contains("Played face cards each give +30 chips"))
+  }
+
+  /**
+   * Tests that joker entities are internally consistent
+   */
+  test("Joker equals - not equal to a non-joker object") {
+    val greedy = new GreedyJoker
+    assertEquals(greedy.equals("not a joker"), false)
+  }
+
+  test("Joker equals - joker is equal to itself") {
+    val steven = new EvenSteven
+    assertEquals(steven, steven)
   }
 }
 

@@ -13,13 +13,12 @@ import munit.FunSuite
    * Test suite for Hand functionality.
    *
    * Tests card and joker addition, removal, index-based retrieval,
-   * bounds checking, bulk collection access, and playing cards by index.
+   * bound checking, collection access, and playing cards by index.
    */
   class HandTest extends FunSuite {
 
     /**
-     * Tests that a newly created hand holds no cards or jokers.
-     *
+     * Tests that a newly created hand holds no cards or jokers
      * Verifies the initial state of both counts.
      */
     test("Hand starts with no cards or jokers") {
@@ -31,7 +30,7 @@ import munit.FunSuite
     /**
      * Tests that adding a card increases the card count by one.
      *
-     * Verifies that `addCard` correctly appends to the card collection.
+     * Verifies that addCard correctly appends to the card collection.
      */
     test("addCard increases card count") {
       val hand = new Hand
@@ -42,7 +41,7 @@ import munit.FunSuite
     /**
      * Tests that removing a card by index decreases the card count by one.
      *
-     * Verifies that `removeCard` correctly removes the card at the given index.
+     * Verifies that removeCard correctly removes the card at the given index.
      */
     test("removeCard decreases card count") {
       val hand = new Hand
@@ -70,7 +69,7 @@ import munit.FunSuite
     /**
      * Tests that adding a joker increases the joker count by one.
      *
-     * Verifies that `addJoker` correctly appends to the joker collection.
+     * Verifies that addJoker correctly appends to the joker collection.
      */
     test("addJoker increases joker count") {
       val hand = new Hand
@@ -81,7 +80,7 @@ import munit.FunSuite
     /**
      * Tests that removing a joker by index decreases the joker count by one.
      *
-     * Verifies that `removeJoker` correctly removes the joker at the given index.
+     * Verifies that removeJoker correctly removes the joker at the given index.
      */
     test("removeJoker decreases joker count") {
       val hand = new Hand
@@ -121,7 +120,7 @@ import munit.FunSuite
     /**
      * Tests that a placed joker can be retrieved at its index.
      *
-     * Verifies that `getJoker` returns the correct joker by index.
+     * Verifies that getJoker returns the correct joker by index.
      */
     test("getJoker retrieves the joker at the correct index") {
       val hand = new Hand
@@ -277,4 +276,32 @@ import munit.FunSuite
       hand.playCards(List(0, 1, 2, 3, 4))
       assertEquals(hand.cardCount, 0)
     }
+    
+    
+    test("removeCard then addCard keeps correct order") {
+      val hand = new Hand
+      val aceOfSpades = new Card(new Ace, new Spades)
+      val kingOfHeart = new Card(new King, new Hearts)
+      val tenOfClover = new Card(new Ten, new Clovers)
+      hand.addCard(aceOfSpades)
+      hand.addCard(kingOfHeart)
+      hand.removeCard(0)
+      hand.addCard(tenOfClover)
+      assertEquals(hand.getCard(0), kingOfHeart)
+      assertEquals(hand.getCard(1), tenOfClover)
+    }
+
+    test("playCards preserves order of indices given") {
+      val hand = new Hand
+      val aceOfSpades = new Card(new Ace, new Spades)
+      val kingOfHeart = new Card(new King, new Hearts)
+      val tenOfClover = new Card(new Ten, new Clovers)
+      hand.addCard(aceOfSpades)
+      hand.addCard(kingOfHeart)
+      hand.addCard(tenOfClover)
+      val played = hand.playCards(List(2, 0))
+      assertEquals(played, List(tenOfClover, aceOfSpades))
+    }
   }
+  
+  
