@@ -6,51 +6,67 @@ import joker.TJoker
 import scala.collection.mutable.ArrayBuffer
 
 /**
- * Represents a collection of playing cards and jokers.
- *
- * Provides operations for adding, retrieving, and counting cards
- * contained in the collection.
+ * Represents a collection of cards and jokers with play functionality.
  */
 trait TCardCollection {
   /**
    * Adds a card to the collection.
-   *
-   * @param card card to add
+   * @param card the card to add.
    */
-  def placeCard(card: TCard): Unit
+  def addCard(card: TCard): Unit
+
+  /**
+   * Removes the card at the given index from the collection.
+   * @param index the zero-based position of the card to remove.
+   */
+  def removeCard(index: Int): Unit
 
   /**
    * Adds a joker to the collection.
-   *
-   * @param joker joker to add
+   * @param joker the joker to add.
    */
-  def placeJoker(joker: TJoker): Unit
+  def addJoker(joker: TJoker): Unit
 
-  /** @return all cards in the collection */
+  /**
+   * Removes the joker at the given index from the collection.
+   * @param index the zero-based position of the joker to remove.
+   */
+  def removeJoker(index: Int): Unit
+
+  /**
+   * Plays the cards at the given indices.
+   *
+   * Returns the corresponding cards and removes them from the hand.
+   * Indices must be valid and the list must contain between 1 and 5 entries.
+   *
+   * @param indices the positions of the cards to play.
+   * @return the list of played cards, in the order the indices were given.
+   */
+  def playCards(indices: List[Int]): List[TCard]
+
+  /** @return all cards currently held. */
   def getCards: ArrayBuffer[TCard]
 
-  /** @return all jokers in the collection */
+  /** @return all jokers currently held. */
   def getJokers: ArrayBuffer[TJoker]
 
   /**
-   * Retrieves a card at the specified index.
-   *
-   * @param index index of the card
-   * @return card at `index`
+   * Returns the card at the given index.
+   * @param index the position to retrieve.
+   * @throws IndexOutOfBoundsException if the index is out of range.
    */
   def getCard(index: Int): TCard
 
   /**
-   * Retrieves a joker at the specified index.
-   *
-   * @param index index of the joker
-   * @return joker at `index`
+   * Returns the joker at the given index.
+   * @param index the position to retrieve.
+   * @throws IndexOutOfBoundsException if the index is out of range.
    */
   def getJoker(index: Int): TJoker
 
-  /** @return number of cards in the collection */
+  /** @return the number of cards held. */
   def cardCount: Int
 
-  /** @return number of jokers in the collection */
+  /** @return the number of jokers held. */
   def jokerCount: Int
 }

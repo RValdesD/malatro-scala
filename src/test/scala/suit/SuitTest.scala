@@ -1,4 +1,12 @@
+package cl.uchile.dcc
+package rank
+import rank.classes.{EvenClass, FigureClass, OddClass}
+import rank.numbers.even.*
+import rank.numbers.figure.{Jack, King, Queen}
+import rank.numbers.odd.*
+import suit.{Clovers, Hearts, Spades}
 
+import munit.FunSuite
 
 
 
