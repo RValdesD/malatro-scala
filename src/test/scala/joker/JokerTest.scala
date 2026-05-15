@@ -18,7 +18,7 @@ class JokerTest extends FunSuite {
    */
   test("GreedyJoker getName and description") {
     val greedy = new GreedyJoker
-    assertEquals(greedy.getName,     "Greedy Joker")
+    assertEquals(greedy.getName, "Greedy Joker")
     assertEquals(greedy.description, "Played cards each give +3 chips")
   }
 
@@ -29,7 +29,7 @@ class JokerTest extends FunSuite {
    */
   test("DeviousJoker getName and description") {
     val devious = new DeviousJoker
-    assertEquals(devious.getName,     "Devious Joker")
+    assertEquals(devious.getName, "Devious Joker")
     assertEquals(devious.description, "+100 chips if hand contains a Straight")
   }
 
@@ -40,7 +40,7 @@ class JokerTest extends FunSuite {
    */
   test("EvenSteven getName and description") {
     val steven = new EvenSteven
-    assertEquals(steven.getName,     "Even Steven")
+    assertEquals(steven.getName, "Even Steven")
     assertEquals(steven.description, "Played even-ranked cards each give +4 chips")
   }
 
@@ -51,7 +51,7 @@ class JokerTest extends FunSuite {
    */
   test("ScaryFace getName and description") {
     val scary = new ScaryFace
-    assertEquals(scary.getName,     "Scary Face")
+    assertEquals(scary.getName, "Scary Face")
     assertEquals(scary.description, "Played face cards each give +30 chips")
   }
 

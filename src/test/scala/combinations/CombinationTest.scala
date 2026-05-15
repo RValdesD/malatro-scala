@@ -76,7 +76,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 8.0)
   }
 
-  // ── Flush ──────────────────────────────────────────────────────────────────
+  // Flush
 
   test("Flush - valid: five hearts, non-consecutive") {
     val combo = new Flush
@@ -99,7 +99,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 4.0)
   }
 
-  // ── Straight ───────────────────────────────────────────────────────────────
+  //Straight
 
   test("Straight - valid: A-2-3-4-5 mixed suits (low ace)") {
     val combo = new Straight
@@ -127,7 +127,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 4.0)
   }
 
-  // ── ThreeOfAKind ───────────────────────────────────────────────────────────
+  // ThreeOfAKind 
 
   test("ThreeOfAKind - valid: three twos") {
     val combo = new ThreeOfAKind
@@ -145,7 +145,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 3.0)
   }
 
-  // ── Pair ───────────────────────────────────────────────────────────────────
+  //Pair 
 
   test("Pair - valid: two kings") {
     val combo = new Pair
@@ -163,7 +163,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 2.0)
   }
 
-  // ── HighCard ───────────────────────────────────────────────────────────────
+  // HighCard 
 
   test("HighCard - valid: any non-empty hand") {
     val combo = new HighCard
@@ -176,7 +176,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 1.0)
   }
 
-  // ── Evaluator priority ─────────────────────────────────────────────────────
+  // Evaluator priority 
 
   test("Evaluator picks StraightFlush over Flush and Straight") {
     val result = evaluator.evaluate(List(aH, twoH, threeH, fourH, fiveH))
@@ -214,7 +214,7 @@ class CombinationTest extends FunSuite {
     assertEquals(result.multiplier, 1.0)
   }
 
-  // ── Ace stair edge cases ───────────────────────────────────────────────────
+  // Ace stair edge cases
 
   test("Straight - A-2-3-4-5 is valid (Ace as 1)") {
     val combo = new Straight

@@ -8,7 +8,6 @@ import rank.numbers.odd.*
 import suit.{Clovers, Diamonds, Hearts, Spades}
 
 import munit.FunSuite
-class HandTest extends FunSuite {
 
   /**
    * Test suite for Hand functionality.
@@ -279,4 +278,3 @@ class HandTest extends FunSuite {
       assertEquals(hand.cardCount, 0)
     }
   }
-}

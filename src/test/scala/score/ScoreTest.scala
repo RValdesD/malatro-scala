@@ -2,6 +2,7 @@ package cl.uchile.dcc
 package score
 import munit.FunSuite
 
+
 class ConcreteScore(val chips: Int, val multiplier: Double) extends Score
 
 class ScoreTest extends FunSuite {
@@ -13,7 +14,7 @@ class ScoreTest extends FunSuite {
 
   test("Score exposes chips and multiplier correctly") {
     val s = new ConcreteScore(50, 3.0)
-    assertEquals(s.chips,      50)
+    assertEquals(s.chips, 50)
     assertEquals(s.multiplier, 3.0)
   }
 
