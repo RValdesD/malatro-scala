@@ -1,12 +1,10 @@
 package cl.uchile.dcc
 package rank
-import cl.uchile.dcc.rank.classes.{OddClass, EvenClass, FigureClass}
-import cl.uchile.dcc.rank.numbers.figure.{Jack, King, Queen}
-import cl.uchile.dcc.rank.numbers.odd.{Ace, Five, Nine, Seven, Three}
-import cl.uchile.dcc.rank.numbers.even.{Eight, Four, Six, Ten, Two}
-import cl.uchile.dcc.suit.{Clovers, Hearts, Spades}
-
-import munit.FunSuite
+import rank.classes.{EvenClass, FigureClass, OddClass}
+import rank.numbers.even.*
+import rank.numbers.figure.{Jack, King, Queen}
+import rank.numbers.odd.*
+import suit.{Clovers, Hearts, Spades}
 
 import munit.FunSuite
 
@@ -17,19 +15,6 @@ import munit.FunSuite
  * across all thirteen concrete rank types.
  */
 class RankTest extends FunSuite {
-  var ace:   Ace   = _
-  var two:   Two   = _
-  var jack:  Jack  = _
-  var queen: Queen = _
-  var king:  King  = _
-
-  override def beforeEach(context: BeforeEach): Unit = {
-    ace   = new Ace
-    two   = new Two
-    jack  = new Jack
-    queen = new Queen
-    king  = new King
-  }
 
   /**
    * Tests that Ace has order 1, value 11, and an Odd rank class.
@@ -37,6 +22,7 @@ class RankTest extends FunSuite {
    * Verifies the three core properties of the Ace rank.
    */
   test("Ace has order 1, value 11, and is Odd") {
+    val ace = new Ace
     assertEquals(ace.order, 1)
     assertEquals(ace.value, 11)
     assertEquals(ace.rankClass.toString, "Odd")
@@ -48,6 +34,7 @@ class RankTest extends FunSuite {
    * Verifies the three core properties of the Two rank.
    */
   test("Two has order 2, value 2, and is Even") {
+    val two = new Two
     assertEquals(two.order, 2)
     assertEquals(two.value, 2)
     assertEquals(two.rankClass.toString, "Even")
@@ -59,6 +46,7 @@ class RankTest extends FunSuite {
    * Verifies the three core properties of the Jack rank.
    */
   test("Jack has order 11, value 10, and is Figure") {
+    val jack = new Jack
     assertEquals(jack.order, 11)
     assertEquals(jack.value, 10)
     assertEquals(jack.rankClass.toString, "Figure")
@@ -70,6 +58,7 @@ class RankTest extends FunSuite {
    * Verifies the order and rank class of the Queen rank.
    */
   test("Queen has order 12 and is Figure") {
+    val queen = new Queen
     assertEquals(queen.order, 12)
     assertEquals(queen.rankClass.toString, "Figure")
   }
@@ -80,6 +69,7 @@ class RankTest extends FunSuite {
    * Verifies the order and rank class of the King rank.
    */
   test("King has order 13 and is Figure") {
+    val king = new King
     assertEquals(king.order, 13)
     assertEquals(king.rankClass.toString, "Figure")
   }
@@ -125,11 +115,11 @@ class RankTest extends FunSuite {
    * Verifies the name field for a representative sample of ranks.
    */
   test("Rank name matches its identity") {
-    assertEquals(ace.name,   "Ace")
-    assertEquals(jack.name,  "Jack")
-    assertEquals(queen.name, "Queen")
-    assertEquals(king.name,  "King")
-    assertEquals(new Ten().name, "Ten")
+    assertEquals(new Ace().name,   "Ace")
+    assertEquals(new Jack().name,  "Jack")
+    assertEquals(new Queen().name, "Queen")
+    assertEquals(new King().name,  "King")
+    assertEquals(new Ten().name,   "Ten")
   }
 
   /**
@@ -138,9 +128,11 @@ class RankTest extends FunSuite {
    * Verifies the format produced by `Rank.toString`.
    */
   test("Rank toString includes name, order, and value") {
+    val king = new King
     assert(king.toString.contains("King"))
     assert(king.toString.contains("13"))
     assert(king.toString.contains("10"))
   }
 }
+
 

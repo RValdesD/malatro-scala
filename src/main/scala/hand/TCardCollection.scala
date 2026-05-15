@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package hand
-import cl.uchile.dcc.card.TCard
-import cl.uchile.dcc.joker.TJoker
+import card.TCard
+import joker.TJoker
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -53,3 +53,4 @@ trait TCardCollection {
 
   /** @return number of jokers in the collection */
   def jokerCount: Int
+}

@@ -5,7 +5,6 @@ import cl.uchile.dcc.rank.numbers.odd.Ace
 import cl.uchile.dcc.rank.numbers.even.{Eight, Ten, Two}
 import cl.uchile.dcc.suit.{Hearts, Spades, Clovers}
 import munit.FunSuite
-import munit.FunSuite
 
 /**
  * Test suite for Card functionality.
@@ -14,17 +13,6 @@ import munit.FunSuite
  * comparison/sorting, and equality checking for card instances.
  */
 class CardTest extends FunSuite {
-  var aceOfSpades:   Card = _
-  var kingOfHearts:  Card = _
-  var queenOfClover: Card = _
-  var tenOfSpades:   Card = _
-
-  override def beforeEach(context: BeforeEach): Unit = {
-    aceOfSpades   = new Card(new Ace,   new Spades)
-    kingOfHearts  = new Card(new King,  new Hearts)
-    queenOfClover = new Card(new Queen, new Clover)
-    tenOfSpades   = new Card(new Ten,   new Spades)
-  }
 
   /**
    * Tests that the card name is correctly derived from its rank and suit.
@@ -32,6 +20,7 @@ class CardTest extends FunSuite {
    * Verifies that `getName` returns the expected "Rank of Suit" format.
    */
   test("Card getName returns rank and suit combined") {
+    val aceOfSpades = new Card(new Ace, new Spades)
     assertEquals(aceOfSpades.getName, "Ace of Spades")
   }
 
@@ -41,6 +30,7 @@ class CardTest extends FunSuite {
    * Verifies that `getRank` returns the correct rank by checking its name.
    */
   test("Card getRank returns the correct rank") {
+    val kingOfHearts = new Card(new King, new Hearts)
     assertEquals(kingOfHearts.getRank.name, "King")
   }
 
@@ -50,6 +40,7 @@ class CardTest extends FunSuite {
    * Verifies that `getSuit` returns the correct suit by checking its name.
    */
   test("Card getSuit returns the correct suit") {
+    val aceOfSpades = new Card(new Ace, new Spades)
     assertEquals(aceOfSpades.getSuit.name, "Spades")
   }
 
@@ -60,6 +51,9 @@ class CardTest extends FunSuite {
    * lexicographically by their "Rank of Suit" name.
    */
   test("Card compare - sorted alphabetically by name") {
+    val aceOfSpades   = new Card(new Ace,   new Spades)
+    val kingOfHearts  = new Card(new King,  new Hearts)
+    val queenOfClover = new Card(new Queen, new Clover)
     val sorted = List(kingOfHearts, queenOfClover, aceOfSpades).sorted
     assertEquals(sorted, List(aceOfSpades, kingOfHearts, queenOfClover))
   }
@@ -71,8 +65,9 @@ class CardTest extends FunSuite {
    * are considered equal.
    */
   test("Card equals - same rank and suit are equal") {
-    val other = new Card(new Ace, new Spades)
-    assertEquals(aceOfSpades, other)
+    val cardA = new Card(new Ace, new Spades)
+    val cardB = new Card(new Ace, new Spades)
+    assertEquals(cardA, cardB)
   }
 
   /**
@@ -82,6 +77,8 @@ class CardTest extends FunSuite {
    * cards with different names.
    */
   test("Card equals - different rank or suit are not equal") {
+    val aceOfSpades  = new Card(new Ace,  new Spades)
+    val kingOfHearts = new Card(new King, new Hearts)
     assert(!aceOfSpades.equals(kingOfHearts))
   }
 
@@ -91,6 +88,7 @@ class CardTest extends FunSuite {
    * Verifies reflexivity of the `equals` method.
    */
   test("Card equals - card compared to itself is equal") {
+    val aceOfSpades = new Card(new Ace, new Spades)
     assertEquals(aceOfSpades, aceOfSpades)
   }
 
@@ -101,6 +99,8 @@ class CardTest extends FunSuite {
    * with objects of a different type.
    */
   test("Card equals - not equal to a non-card object") {
+    val aceOfSpades = new Card(new Ace, new Spades)
     assertEquals(aceOfSpades.equals("not a card"), false)
   }
 }
+

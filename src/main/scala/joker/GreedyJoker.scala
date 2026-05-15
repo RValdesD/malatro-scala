@@ -9,5 +9,4 @@ package joker
 class GreedyJoker extends AJoker("Greedy Joker"):
 
   /** Bonus effect granted by this joker. */
-  val description: String =
-    "Played cards each give +3 chips
+  val description: String = "Played cards each give +3 chips"
