@@ -2,8 +2,9 @@ package cl.uchile.dcc
 package card
 import cl.uchile.dcc.rank.numbers.figure.{Jack, King, Queen}
 import cl.uchile.dcc.rank.numbers.odd.Ace
-import cl.uchile.dcc.rank.numbers.even.{Eight, Ten, Two}
-import cl.uchile.dcc.suit.{Hearts, Spades, Clovers}
+import cl.uchile.dcc.rank.numbers.even.{Two, Four, Six, Eight, Ten}
+import cl.uchile.dcc.rank.numbers.odd.{Ace, Three, Five, Seven, Nine}
+import cl.uchile.dcc.suit.{Hearts, Spades, Clovers, Diamonds}
 import munit.FunSuite
 
 /**
@@ -53,7 +54,7 @@ class CardTest extends FunSuite {
   test("Card compare - sorted alphabetically by name") {
     val aceOfSpades   = new Card(new Ace,   new Spades)
     val kingOfHearts  = new Card(new King,  new Hearts)
-    val queenOfClover = new Card(new Queen, new Clover)
+    val queenOfClover = new Card(new Queen, new Clovers)
     val sorted = List(kingOfHearts, queenOfClover, aceOfSpades).sorted
     assertEquals(sorted, List(aceOfSpades, kingOfHearts, queenOfClover))
   }

@@ -1,3 +1,7 @@
+package cl.uchile.dcc
+package combinations
+import card.TCard
+
 abstract class ACombination extends TCombination {
 
   /** Orders extracted from the card list, with Ace treated as both 1 and 14. */

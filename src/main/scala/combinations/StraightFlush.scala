@@ -1,6 +1,6 @@
-
-
-
+package cl.uchile.dcc
+package combinations
+import card.TCard
 
 class StraightFlush extends ACombination {
   val chips: Int          = 100

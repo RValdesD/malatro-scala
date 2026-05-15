@@ -1,6 +1,6 @@
 package cl.uchile.dcc
-package card
-import
+package combinations
+import card.TCard
 
 trait TCombination {
   def chips: Int

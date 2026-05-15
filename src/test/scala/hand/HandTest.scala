@@ -164,7 +164,7 @@ class HandTest extends FunSuite {
       val hand = new Hand
       hand.addCard(new Card(new Ace, new Spades))
       hand.addCard(new Card(new King, new Hearts))
-      hand.addCard(new Card(new Ten, new Clover))
+      hand.addCard(new Card(new Ten, new Clovers))
       hand.addJoker(new GreedyJoker)
       hand.addJoker(new ScaryFace)
       assertEquals(hand.cardCount, 3)
@@ -278,5 +278,4 @@ class HandTest extends FunSuite {
       assertEquals(hand.cardCount, 0)
     }
   }
-
-
+}

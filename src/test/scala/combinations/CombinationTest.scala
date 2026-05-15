@@ -1,13 +1,29 @@
 package cl.uchile.dcc
 package combinations
+import cl.uchile.dcc.card.Card
+import munit.FunSuite
+import cl.uchile.dcc.rank.numbers.even.{Two, Four, Six, Eight, Ten}
+import cl.uchile.dcc.rank.numbers.odd.{Ace, Three, Five, Seven, Nine}
+import cl.uchile.dcc.suit.{Hearts, Spades, Clovers, Diamonds}
+import cl.uchile.dcc.rank.numbers.figure.{Jack, King, Queen}
+import cl.uchile.dcc.suit.{Clovers, Hearts, Spades}
 
+
+/**
+ * Test suite for poker combination validation and evaluator priority.
+ *
+ * Tests each combination's isValid method individually, conflict resolution
+ * through the CombinationEvaluator, and Ace stair edge cases.
+ *
+ * Shared card vals are defined at class level to avoid repetition across tests.
+ */
 class CombinationTest extends FunSuite {
-  
+
   val evaluator = new CombinationEvaluator
 
-  //everything hearts
-  val aH  = new Card(new Ace,   new Hearts)
-  val twoH  = new Card(new Two,   new Hearts)
+  // everything hearts
+  val aH     = new Card(new Ace,   new Hearts)
+  val twoH   = new Card(new Two,   new Hearts)
   val threeH = new Card(new Three, new Hearts)
   val fourH  = new Card(new Four,  new Hearts)
   val fiveH  = new Card(new Five,  new Hearts)
@@ -17,21 +33,22 @@ class CombinationTest extends FunSuite {
   val qH     = new Card(new Queen, new Hearts)
   val kH     = new Card(new King,  new Hearts)
 
-  //mixed: suits
-  val aS   = new Card(new Ace,   new Spades)
-  val twoS = new Card(new Two,   new Spades)
-  val twoC = new Card(new Two,   new Clover)
-  val twoD = new Card(new Two,   new Diamonds)
+  // mixed suits
+  val aS     = new Card(new Ace,   new Spades)
+  val twoS   = new Card(new Two,   new Spades)
+  val twoC   = new Card(new Two,   new Clovers)
+  val twoD   = new Card(new Two,   new Diamonds)
   val threeS = new Card(new Three, new Spades)
   val fourS  = new Card(new Four,  new Spades)
   val fiveS  = new Card(new Five,  new Spades)
+  val sixS   = new Card(new Six,   new Spades)
   val tenS   = new Card(new Ten,   new Spades)
   val jS     = new Card(new Jack,  new Spades)
   val qS     = new Card(new Queen, new Spades)
   val kS     = new Card(new King,  new Spades)
-  val kC     = new Card(new King,  new Clover)
+  val kC     = new Card(new King,  new Clovers)
 
-  //straight flush
+  // ── StraightFlush ──────────────────────────────────────────────────────────
 
   test("StraightFlush - valid: A-2-3-4-5 same suit (low ace)") {
     val combo = new StraightFlush
@@ -59,7 +76,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 8.0)
   }
 
-  //flush
+  // ── Flush ──────────────────────────────────────────────────────────────────
 
   test("Flush - valid: five hearts, non-consecutive") {
     val combo = new Flush
@@ -82,7 +99,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 4.0)
   }
 
-  //straight
+  // ── Straight ───────────────────────────────────────────────────────────────
 
   test("Straight - valid: A-2-3-4-5 mixed suits (low ace)") {
     val combo = new Straight
@@ -110,7 +127,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 4.0)
   }
 
-  //3 of a kind
+  // ── ThreeOfAKind ───────────────────────────────────────────────────────────
 
   test("ThreeOfAKind - valid: three twos") {
     val combo = new ThreeOfAKind
@@ -128,8 +145,8 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 3.0)
   }
 
-  //teto pair
-  
+  // ── Pair ───────────────────────────────────────────────────────────────────
+
   test("Pair - valid: two kings") {
     val combo = new Pair
     assert(combo.isValid(List(kH, kS)))
@@ -146,7 +163,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 2.0)
   }
 
-  //highcard
+  // ── HighCard ───────────────────────────────────────────────────────────────
 
   test("HighCard - valid: any non-empty hand") {
     val combo = new HighCard
@@ -159,7 +176,7 @@ class CombinationTest extends FunSuite {
     assertEquals(combo.multiplier, 1.0)
   }
 
-  //evaluation: priority
+  // ── Evaluator priority ─────────────────────────────────────────────────────
 
   test("Evaluator picks StraightFlush over Flush and Straight") {
     val result = evaluator.evaluate(List(aH, twoH, threeH, fourH, fiveH))
@@ -197,8 +214,7 @@ class CombinationTest extends FunSuite {
     assertEquals(result.multiplier, 1.0)
   }
 
-
-  //edge cases for Ace (since it can take values 1 or 14 within a stair yet has single value 1)
+  // ── Ace stair edge cases ───────────────────────────────────────────────────
 
   test("Straight - A-2-3-4-5 is valid (Ace as 1)") {
     val combo = new Straight
