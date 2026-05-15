@@ -1,30 +1,48 @@
-# Tarea 1 | Entrega Parcial 2
+# Tarea 1 | Entrega Final 1
 
 Project structure:
 
-score/        Score trait (chips, multiplier, total)
+Elements
+--------------------------------
 
-rank/         Rank hierarchy — Ace to King, classified as Even, Odd, or Figure
-
-suit/         Four standard suits
-
-card/         TCard / ACard / Card — a playing card combining Rank and Suit
-
-joker/        TJoker / AJoker and four concrete Jokers
-
-hand/         TCardCollection / AHand / Hand — holds cards and jokers
-
-combination/  TCombination / ACombination and six poker combinations (To be done based on test suite)
-
-test/
-mirrors the src layout, one test suite per package
-
-
-----Score---
+score: Score trait (chips, multiplier, total)
+rank:  Rank hierarchy — Ace to King, classified as Even, Odd, or Figure
+suit:  Four standard suits
+card:  TCard / ACard / Card — a playing card combining Rank and Suit
+joker:  TJoker / AJoker and four concrete Jokers
+hand:  TCardCollection / AHand / Hand — holds cards and jokers
+combination:  TCombination / ACombination and six poker combinations 
+test: mirrors the src layout, one test suite per package
 
 A Score has a chip count and a multiplier. total is derived as chips × multiplier.
 
+Visual Overview
+-------------------------------------
+src/main/scala
+├── card/        
+├── combinations/        
+├── hand/         
+├── joker/        
+├── rank/
+├──── classes/
+├──── numbers/
+├─────── even/
+├─────── figure/
+├─────── odd/
+├── score/
+├── suit/
 
+src/test/scala
+├── card/
+├── combinations/
+├── hand/
+├── joker/
+├── rank/
+├── score/
+├── suit/
+
+Overview
+--------------------------------
 Rank
 Thirteen ranks from Ace to King. Each rank has
 
@@ -35,10 +53,8 @@ Thirteen ranks from Ace to King. Each rank has
 Suit
 Four suits: Hearts, Spades, Clover, Diamonds.
 
-
 Card
 A Card takes a Rank and a Suit. Its name is derived as "<Rank> of <Suit>". Cards are ordered and comparable by name.
-
 
 Joker
 Four jokers, each with a name and a description of its effect:
@@ -53,4 +69,15 @@ A Hand holds a collection of Cards and Jokers. Cards and jokers are placed indiv
 
 Combinations
 Six poker combinations evaluated in priority order.
-Note: The project has yet to be documented. This will be done pretty soon hopefully (aaaaa)
+
+
+Combinations (priority order)
+
+│ Priority        │ Chips │ Multiplier   │ Requirement                          │
+
+│ 1. StraightFlush│  100  │     ×8       │ 5 consecutive cards, same suit       │
+│ 2. Flush        │   35  │     ×4       │ 5 cards, same suit, any order        │
+│ 3. Straight     │   30  │     ×4       │ 5 consecutive cards, any suit        │
+│ 4. ThreeOfAKind │   30  │     ×3       │ 3+ cards sharing the same rank       │
+│ 5. Pair         │   10  │     ×2       │ 2+ cards sharing the same rank       │
+│ 6. HighCard     │    5  │     ×1       │ Any non-empty hand (fallback)        │
