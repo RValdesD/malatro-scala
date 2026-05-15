@@ -23,7 +23,7 @@ class SuitTest extends FunSuite {
    * Verifies that no two suits share the same name string.
    */
   test("All four suits have distinct names") {
-    val suits: List[Suit] = List(new Hearts, new Spades, new Clover, new Diamonds)
+    val suits: List[Suit] = List(new Hearts, new Spades, new Clovers, new Diamonds)
     assertEquals(suits.map(_.name).distinct.size, 4)
   }
 
@@ -35,7 +35,7 @@ class SuitTest extends FunSuite {
   test("Each suit toString returns its name") {
     assertEquals(new Hearts().toString,   "Hearts")
     assertEquals(new Spades().toString,   "Spades")
-    assertEquals(new Clover().toString,   "Clover")
+    assertEquals(new Clovers().toString,   "Clovers")
     assertEquals(new Diamonds().toString, "Diamonds")
   }
 }
