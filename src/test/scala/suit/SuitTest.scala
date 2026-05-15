@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package rank
+package suit
 import rank.classes.{EvenClass, FigureClass, OddClass}
 import rank.numbers.even.*
 import rank.numbers.figure.{Jack, King, Queen}

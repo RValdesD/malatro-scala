@@ -1,12 +1,13 @@
 package cl.uchile.dcc
 package hand
+import card.Card
+import joker.{EvenSteven, GreedyJoker, ScaryFace}
+import rank.numbers.even.*
+import rank.numbers.figure.{Jack, King, Queen}
+import rank.numbers.odd.*
+import suit.{Clovers, Diamonds, Hearts, Spades}
+
 import munit.FunSuite
-import cl.uchile.dcc.card.Card
-import cl.uchile.dcc.joker.{GreedyJoker, EvenSteven, ScaryFace}
-import cl.uchile.dcc.rank.numbers.even.Ten
-import cl.uchile.dcc.rank.numbers.figure.{Jack, King, Queen}
-import cl.uchile.dcc.suit.{Clovers, Hearts, Spades}
-import cl.uchile.dcc.rank.numbers.odd.Ace
 class HandTest extends FunSuite {
 
   /**
@@ -210,7 +211,7 @@ class HandTest extends FunSuite {
       val hand = new Hand
       val aceOfSpades = new Card(new Ace, new Spades)
       val twoOfHeart = new Card(new Two, new Hearts)
-      val kingOfClover = new Card(new King, new Clover)
+      val kingOfClover = new Card(new King, new Clovers)
       hand.addCard(aceOfSpades)
       hand.addCard(twoOfHeart)
       hand.addCard(kingOfClover)
@@ -227,7 +228,7 @@ class HandTest extends FunSuite {
       val hand = new Hand
       hand.addCard(new Card(new Ace, new Spades))
       hand.addCard(new Card(new Two, new Hearts))
-      hand.addCard(new Card(new King, new Clover))
+      hand.addCard(new Card(new King, new Clovers))
       hand.playCards(List(0, 2))
       assertEquals(hand.cardCount, 1)
     }
@@ -242,7 +243,7 @@ class HandTest extends FunSuite {
       val twoOfHeart = new Card(new Two, new Hearts)
       hand.addCard(new Card(new Ace, new Spades))
       hand.addCard(twoOfHeart)
-      hand.addCard(new Card(new King, new Clover))
+      hand.addCard(new Card(new King, new Clovers))
       hand.playCards(List(0, 2))
       assertEquals(hand.getCard(0), twoOfHeart)
     }
@@ -271,7 +272,7 @@ class HandTest extends FunSuite {
       val hand = new Hand
       hand.addCard(new Card(new Ace, new Spades))
       hand.addCard(new Card(new Two, new Hearts))
-      hand.addCard(new Card(new King, new Clover))
+      hand.addCard(new Card(new King, new Clovers))
       hand.addCard(new Card(new Queen, new Spades))
       hand.addCard(new Card(new Ten, new Hearts))
       hand.playCards(List(0, 1, 2, 3, 4))
