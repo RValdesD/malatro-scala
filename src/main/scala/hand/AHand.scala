@@ -1,13 +1,12 @@
 package cl.uchile.dcc
 package hand
-import cl.uchile.dcc.card.TCard
-import cl.uchile.dcc.joker.TJoker
-
+import card.TCard
+import joker.TJoker
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ArrayBuffer
 
 /**
- * Represents an abstract base for a hand, holding a mutable collection of cards and jokers.
+ * Abstract base for a hand, holding a mutable collection of cards and jokers.
  *
  * Cards and jokers are stored separately and accessed by index or as a full list.
  * Both collections start empty.
@@ -20,13 +19,41 @@ abstract class AHand extends TCardCollection {
    * Adds a card to the hand.
    * @param card the card to add.
    */
-  def placeCard(card: TCard): Unit = cards.append(card)
+  def addCard(card: TCard): Unit = cards.append(card)
+
+  /**
+   * Removes the card at the given index from the hand.
+   * @param index the zero-based position of the card to remove.
+   */
+  def removeCard(index: Int): Unit = cards.remove(index)
 
   /**
    * Adds a joker to the hand.
    * @param joker the joker to add.
    */
-  def placeJoker(joker: TJoker): Unit = jokers.append(joker)
+  def addJoker(joker: TJoker): Unit = jokers.append(joker)
+
+  /**
+   * Removes the joker at the given index from the hand.
+   * @param index the zero-based position of the joker to remove.
+   */
+  def removeJoker(index: Int): Unit = jokers.remove(index)
+
+  /**
+   * Plays the cards at the given indices.
+   *
+   * Collects the cards at each index, then removes them from the hand
+   * in descending index order so earlier removals do not shift
+   * the positions of later ones.
+   *
+   * @param indices a list of 1 to 5 valid card indices to play.
+   * @return the list of played cards in the order the indices were given.
+   */
+  def playCards(indices: List[Int]): List[TCard] = {
+    val played = indices.map(i => cards(i))
+    indices.sorted.reverse.foreach(i => cards.remove(i))
+    played
+  }
 
   /** @return all cards currently in the hand. */
   def getCards: ArrayBuffer[TCard] = cards
@@ -66,3 +93,4 @@ abstract class AHand extends TCardCollection {
   /** @return the number of jokers in the hand. */
   def jokerCount: Int = jokers.length
 }
+

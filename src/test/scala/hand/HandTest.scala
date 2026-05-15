@@ -24,7 +24,7 @@ class HandTest extends FunSuite {
      */
     test("Hand starts with no cards or jokers") {
       val hand = new Hand
-      assertEquals(hand.cardCount,  0)
+      assertEquals(hand.cardCount, 0)
       assertEquals(hand.jokerCount, 0)
     }
 
@@ -58,7 +58,7 @@ class HandTest extends FunSuite {
      * leaving the remaining cards intact.
      */
     test("removeCard removes the card at the given index") {
-      val hand        = new Hand
+      val hand = new Hand
       val aceOfSpades = new Card(new Ace, new Spades)
       val kingOfHeart = new Card(new King, new Hearts)
       hand.addCard(aceOfSpades)
@@ -97,7 +97,7 @@ class HandTest extends FunSuite {
      * leaving the remaining jokers intact.
      */
     test("removeJoker removes the joker at the given index") {
-      val hand   = new Hand
+      val hand = new Hand
       val greedy = new GreedyJoker
       val steven = new EvenSteven
       hand.addJoker(greedy)
@@ -112,7 +112,7 @@ class HandTest extends FunSuite {
      * Verifies that `getCard` returns the correct card by index.
      */
     test("getCard retrieves the card at the correct index") {
-      val hand        = new Hand
+      val hand = new Hand
       val aceOfSpades = new Card(new Ace, new Spades)
       hand.addCard(aceOfSpades)
       assertEquals(hand.getCard(0), aceOfSpades)
@@ -124,7 +124,7 @@ class HandTest extends FunSuite {
      * Verifies that `getJoker` returns the correct joker by index.
      */
     test("getJoker retrieves the joker at the correct index") {
-      val hand   = new Hand
+      val hand = new Hand
       val steven = new EvenSteven
       hand.addJoker(steven)
       assertEquals(hand.getJoker(0), steven)
@@ -137,7 +137,9 @@ class HandTest extends FunSuite {
      */
     test("getCard throws on out-of-bounds index") {
       val hand = new Hand
-      intercept[IndexOutOfBoundsException] { hand.getCard(0) }
+      intercept[IndexOutOfBoundsException] {
+        hand.getCard(0)
+      }
     }
 
     /**
@@ -147,7 +149,9 @@ class HandTest extends FunSuite {
      */
     test("getJoker throws on out-of-bounds index") {
       val hand = new Hand
-      intercept[IndexOutOfBoundsException] { hand.getJoker(0) }
+      intercept[IndexOutOfBoundsException] {
+        hand.getJoker(0)
+      }
     }
 
     /**
@@ -158,12 +162,12 @@ class HandTest extends FunSuite {
      */
     test("Hand holds multiple cards and jokers independently") {
       val hand = new Hand
-      hand.addCard(new Card(new Ace,  new Spades))
+      hand.addCard(new Card(new Ace, new Spades))
       hand.addCard(new Card(new King, new Hearts))
-      hand.addCard(new Card(new Ten,  new Clover))
+      hand.addCard(new Card(new Ten, new Clover))
       hand.addJoker(new GreedyJoker)
       hand.addJoker(new ScaryFace)
-      assertEquals(hand.cardCount,  3)
+      assertEquals(hand.cardCount, 3)
       assertEquals(hand.jokerCount, 2)
     }
 
@@ -173,8 +177,8 @@ class HandTest extends FunSuite {
      * Verifies that the full card collection contains every added card.
      */
     test("getCards contains all added cards") {
-      val hand        = new Hand
-      val aceOfSpades = new Card(new Ace,  new Spades)
+      val hand = new Hand
+      val aceOfSpades = new Card(new Ace, new Spades)
       val kingOfHeart = new Card(new King, new Hearts)
       hand.addCard(aceOfSpades)
       hand.addCard(kingOfHeart)
@@ -188,7 +192,7 @@ class HandTest extends FunSuite {
      * Verifies that the full joker collection contains every added joker.
      */
     test("getJokers contains all added jokers") {
-      val hand   = new Hand
+      val hand = new Hand
       val greedy = new GreedyJoker
       val steven = new EvenSteven
       hand.addJoker(greedy)
@@ -203,10 +207,10 @@ class HandTest extends FunSuite {
      * Verifies that the returned list matches the cards at the specified positions.
      */
     test("playCards returns the cards at the given indices") {
-      val hand        = new Hand
-      val aceOfSpades = new Card(new Ace,   new Spades)
-      val twoOfHeart  = new Card(new Two,   new Hearts)
-      val kingOfClover= new Card(new King,  new Clover)
+      val hand = new Hand
+      val aceOfSpades = new Card(new Ace, new Spades)
+      val twoOfHeart = new Card(new Two, new Hearts)
+      val kingOfClover = new Card(new King, new Clover)
       hand.addCard(aceOfSpades)
       hand.addCard(twoOfHeart)
       hand.addCard(kingOfClover)
@@ -221,9 +225,9 @@ class HandTest extends FunSuite {
      */
     test("playCards removes the played cards from the hand") {
       val hand = new Hand
-      hand.addCard(new Card(new Ace,   new Spades))
-      hand.addCard(new Card(new Two,   new Hearts))
-      hand.addCard(new Card(new King,  new Clover))
+      hand.addCard(new Card(new Ace, new Spades))
+      hand.addCard(new Card(new Two, new Hearts))
+      hand.addCard(new Card(new King, new Clover))
       hand.playCards(List(0, 2))
       assertEquals(hand.cardCount, 1)
     }
@@ -234,9 +238,9 @@ class HandTest extends FunSuite {
      * Verifies that the card not included in the play indices remains in the hand.
      */
     test("playCards leaves the remaining cards in the hand") {
-      val hand       = new Hand
+      val hand = new Hand
       val twoOfHeart = new Card(new Two, new Hearts)
-      hand.addCard(new Card(new Ace,  new Spades))
+      hand.addCard(new Card(new Ace, new Spades))
       hand.addCard(twoOfHeart)
       hand.addCard(new Card(new King, new Clover))
       hand.playCards(List(0, 2))
@@ -249,7 +253,7 @@ class HandTest extends FunSuite {
      * Verifies the minimum valid play of one card.
      */
     test("playCards with a single index returns one card and removes it") {
-      val hand        = new Hand
+      val hand = new Hand
       val aceOfSpades = new Card(new Ace, new Spades)
       hand.addCard(aceOfSpades)
       hand.addCard(new Card(new King, new Hearts))
@@ -265,13 +269,14 @@ class HandTest extends FunSuite {
      */
     test("playCards with five indices empties the hand") {
       val hand = new Hand
-      hand.addCard(new Card(new Ace,   new Spades))
-      hand.addCard(new Card(new Two,   new Hearts))
-      hand.addCard(new Card(new King,  new Clover))
+      hand.addCard(new Card(new Ace, new Spades))
+      hand.addCard(new Card(new Two, new Hearts))
+      hand.addCard(new Card(new King, new Clover))
       hand.addCard(new Card(new Queen, new Spades))
-      hand.addCard(new Card(new Ten,   new Hearts))
+      hand.addCard(new Card(new Ten, new Hearts))
       hand.playCards(List(0, 1, 2, 3, 4))
       assertEquals(hand.cardCount, 0)
     }
   }
+
 
