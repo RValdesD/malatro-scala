@@ -8,7 +8,7 @@ package joker
  *
  * @param name the name of this joker.
  */
-abstract class AJoker(val name: String) extends TJoker {
+abstract class AJoker(private val name: String) extends TJoker {
   /** @return the name of this joker. */
   def getName: String = name
 

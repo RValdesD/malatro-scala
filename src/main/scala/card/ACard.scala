@@ -13,7 +13,7 @@ import cl.uchile.dcc.rank.Rank
  * @param suit the suit of this card.
  */
 abstract class ACard(val rank: Rank, val suit: Suit) extends TCard {
-  val name: String = s"${rank.name} of ${suit.name}"
+  private val name: String = s"${rank.name} of ${suit.name}"
 
   /** @return the full name of this card, e.g. "Ace of Spades". */
   def getName: String = name

@@ -25,7 +25,7 @@ abstract class AHand extends TCardCollection {
    * Removes the card at the given index from the hand.
    * @param index the zero-based position of the card to remove.
    */
-  def removeCard(index: Int): Unit = cards.remove(index)
+  protected def removeCard(index: Int): Unit = cards.remove(index)
 
   /**
    * Adds a joker to the hand.
@@ -37,7 +37,7 @@ abstract class AHand extends TCardCollection {
    * Removes the joker at the given index from the hand.
    * @param index the zero-based position of the joker to remove.
    */
-  def removeJoker(index: Int): Unit = jokers.remove(index)
+  protected def removeJoker(index: Int): Unit = jokers.remove(index)
 
   /**
    * Plays the cards at the given indices.
@@ -55,11 +55,11 @@ abstract class AHand extends TCardCollection {
     played
   }
 
-  /** @return all cards currently in the hand. */
-  def getCards: ArrayBuffer[TCard] = cards
+  /** @return all cards currently in the hand, as an immutable list. */
+  def getCards: List[TCard] = cards.toList
 
-  /** @return all jokers currently in the hand. */
-  def getJokers: ArrayBuffer[TJoker] = jokers
+  /** @return all jokers currently in the hand, as an immutable list. */
+  def getJokers: List[TJoker] = jokers.toList
 
   /**
    * Returns the card at the given index.
@@ -93,4 +93,5 @@ abstract class AHand extends TCardCollection {
   /** @return the number of jokers in the hand. */
   def jokerCount: Int = jokers.length
 }
+
 

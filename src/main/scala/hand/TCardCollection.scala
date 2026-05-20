@@ -16,22 +16,10 @@ trait TCardCollection {
   def addCard(card: TCard): Unit
 
   /**
-   * Removes the card at the given index from the collection.
-   * @param index the zero-based position of the card to remove.
-   */
-  def removeCard(index: Int): Unit
-
-  /**
    * Adds a joker to the collection.
    * @param joker the joker to add.
    */
   def addJoker(joker: TJoker): Unit
-
-  /**
-   * Removes the joker at the given index from the collection.
-   * @param index the zero-based position of the joker to remove.
-   */
-  def removeJoker(index: Int): Unit
 
   /**
    * Plays the cards at the given indices.
@@ -44,11 +32,11 @@ trait TCardCollection {
    */
   def playCards(indices: List[Int]): List[TCard]
 
-  /** @return all cards currently held. */
-  def getCards: ArrayBuffer[TCard]
+  /** @return all cards currently held, as an immutable list. */
+  def getCards: List[TCard]
 
-  /** @return all jokers currently held. */
-  def getJokers: ArrayBuffer[TJoker]
+  /** @return all jokers currently held, as an immutable list. */
+  def getJokers: List[TJoker]
 
   /**
    * Returns the card at the given index.
@@ -70,3 +58,4 @@ trait TCardCollection {
   /** @return the number of jokers held. */
   def jokerCount: Int
 }
+
