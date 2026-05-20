@@ -1,5 +1,6 @@
-# Tarea 1 | Entrega Final 1
+# Tarea 2 | Entrega Parcial 1
 
+EP3: cambios en definiciones de metodos 
 Project structure:
 
 Elements
@@ -81,3 +82,4 @@ Combinations (priority order)
 │ 4. ThreeOfAKind │   30  │     ×3       │ 3+ cards sharing the same rank       │
 │ 5. Pair         │   10  │     ×2       │ 2+ cards sharing the same rank       │
 │ 6. HighCard     │    5  │     ×1       │ Any non-empty hand (fallback)        │
+
