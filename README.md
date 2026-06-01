@@ -1,6 +1,6 @@
-# Tarea 2 | Entrega Parcial 1
+# Tarea 2 | Entrega Parcial 2
 
-EP3: cambios en definiciones de metodos 
+EP4: excepciones, no alcancé a terminar pero dejé un blueprint
 Project structure:
 
 Elements
