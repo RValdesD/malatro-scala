@@ -2,26 +2,37 @@ package cl.uchile.dcc
 package joker
 
 /**
- * Represents a joker card with a name and gameplay effect.
+ * Represents a joker card with a name, effect description, and score interactions.
  *
- * Jokers are ordered relative to other jokers through
- * the `Ordered` interface implementation.
+ * Participates in double dispatch for combinations, suits, and rank classes.
  */
-trait TJoker extends Ordered[TJoker]:
-
-  /** @return name of the joker */
+trait TJoker extends Ordered[TJoker] {
   def getName: String
-
-  /** @return description of the joker's effect */
   def description: String
+  def compare(that: TJoker): Int
 
   /**
-   * Compares this joker with another joker.
-   *
-   * @param that joker to compare against
-   * @return
-   *   negative value if this joker is less than `that`,
-   *   zero if both jokers are equal,
-   *   positive value if this joker is greater than `that`
+   * Second step of double dispatch for combination scoring.
+   * @param combination the combination initiating the dispatch.
+   * @param score       the current score.
+   * @return the updated Score.
    */
-  def compare(that: TJoker): Int
+  def applyScoreFrom(combination: TCombination, score: Score): Score
+
+  /**
+   * Second step of double dispatch for suit scoring.
+   * @param suit  the suit initiating the dispatch.
+   * @param score the current score.
+   * @return the updated Score.
+   */
+  def applyScoreFromSuit(suit: Suit, score: Score): Score
+
+  /**
+   * Second step of double dispatch for rank class scoring.
+   * @param rankClass the rank class initiating the dispatch.
+   * @param score     the current score.
+   * @return the updated Score.
+   */
+  def applyScoreFromRankClass(rankClass: RankClass, score: Score): Score
+}
+
