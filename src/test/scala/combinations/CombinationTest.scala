@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package combinations
-import cl.uchile.dcc.card.Card
 import munit.FunSuite
+import cl.uchile.dcc.card.Card
 import cl.uchile.dcc.rank.numbers.even.{Two, Four, Six, Eight, Ten}
 import cl.uchile.dcc.rank.numbers.odd.{Ace, Three, Five, Seven, Nine}
 import cl.uchile.dcc.suit.{Hearts, Spades, Clovers, Diamonds}
