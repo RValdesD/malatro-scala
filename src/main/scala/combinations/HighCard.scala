@@ -4,23 +4,16 @@ import card.TCard
 
 
 /**
- * Represents the High Card combination.
- *
- * This combination is valid whenever at least one card is present.
+ * High Card: any non-empty hand.
+ * Base score: 5 chips, x1 multiplier.
  */
-class HighCard extends ACombination:
-
-  /** Base chip value awarded for this combination. */
-  val chips: Int = 5
-
-  /** Score multiplier awarded for this combination. */
+class HighCard extends ACombination {
+  val chips: Int         = 5
   val multiplier: Double = 1.0
 
-  /**
-   * Determines whether the given cards form a HighCard.
-   *
-   * @param cards cards to evaluate
-   * @return `true` if the card list is non-empty
-   */
-  def isValid(cards: List[TCard]): Boolean =
-    cards.nonEmpty
+  def isValid(cards: List[TCard]): Boolean = cards.nonEmpty
+
+  override def applyScoreFromGreedyJoker(joker: GreedyJoker, score: Score): Score =
+    score.addChips(3)
+}
+
