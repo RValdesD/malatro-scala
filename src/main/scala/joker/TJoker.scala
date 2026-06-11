@@ -1,6 +1,11 @@
 package cl.uchile.dcc
 package joker
 
+import combinations.TCombination
+import score.Score
+import rank.RankClass
+import suit.Suit
+
 /**
  * Represents a joker card with a name, effect description, and score interactions.
  *

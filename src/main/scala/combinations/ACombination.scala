@@ -1,5 +1,6 @@
 package cl.uchile.dcc
 package combinations
+
 import card.TCard
 import joker.{DeviousJoker, EvenSteven, GreedyJoker, ScaryFace, TJoker}
 import score.Score
