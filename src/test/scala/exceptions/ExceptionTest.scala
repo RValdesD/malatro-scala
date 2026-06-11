@@ -12,7 +12,7 @@ import munit.FunSuite
  * the expected type.
  */
 class ExceptionTest extends FunSuite {
-  
+
   /**
    * Tests that HandFullException stores and exposes the given message.
    *
@@ -32,7 +32,7 @@ class ExceptionTest extends FunSuite {
     val ex = new HandFullException("hand is full")
     assert(ex.isInstanceOf[Exception])
   }
-  
+
   /**
    * Tests that JokerLimitException stores and exposes the given message.
    *
@@ -52,7 +52,7 @@ class ExceptionTest extends FunSuite {
     val ex = new JokerLimitException("joker limit reached")
     assert(ex.isInstanceOf[Exception])
   }
-  
+
   /**
    * Tests that InvalidCardIndexException stores and exposes the given message.
    *
@@ -72,7 +72,7 @@ class ExceptionTest extends FunSuite {
     val ex = new InvalidCidxException("invalid card index")
     assert(ex.isInstanceOf[Exception])
   }
-  
+
   /**
    * Tests that InvalidJokerIndexException stores and exposes the given message.
    *
@@ -93,8 +93,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardMaxSetPlayedException ─────────────────────────────────────────────
-
+  // CardMaxSetPlayedException
   /**
    * Tests that CardMaxSetPlayedException stores and exposes the given message.
    *
@@ -115,8 +114,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardMaxTimesDiscardException ──────────────────────────────────────────
-
+  // CardMaxTimesDiscardException
   /**
    * Tests that CardMaxTimesDiscardException stores and exposes the given message.
    *
@@ -137,8 +135,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardMaxPlayedException ────────────────────────────────────────────────
-
+  // CardMaxPlayedException
   /**
    * Tests that CardMaxPlayedException stores and exposes the given message.
    *
@@ -159,8 +156,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardMinPlayedException ────────────────────────────────────────────────
-
+  //CardMinPlayedException
   /**
    * Tests that CardMinPlayedException stores and exposes the given message.
    *
@@ -181,8 +177,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardInvalidListidxPlayedException ─────────────────────────────────────
-
+  //CardInvalidListidxPlayedException
   /**
    * Tests that CardInvalidListidxPlayedException stores and exposes the given message.
    *
@@ -203,8 +198,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardMaxDiscardException ───────────────────────────────────────────────
-
+  // CardMaxDiscardException
   /**
    * Tests that CardMaxDiscardException stores and exposes the given message.
    *
@@ -225,8 +219,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardMinDiscardException ───────────────────────────────────────────────
-
+  // CardMinDiscardException
   /**
    * Tests that CardMinDiscardException stores and exposes the given message.
    *
@@ -247,8 +240,7 @@ class ExceptionTest extends FunSuite {
     assert(ex.isInstanceOf[Exception])
   }
 
-  // ── CardInvalidListidxDiscardException ────────────────────────────────────
-
+  // CardInvalidListidxDiscardException
   /**
    * Tests that CardInvalidListidxDiscardException stores and exposes the given message.
    *

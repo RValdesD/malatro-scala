@@ -14,7 +14,7 @@ import scala.collection.mutable.ArrayBuffer
  * Cards may be played at most 3 times and discarded at most 3 times per hand.
  * Direct removal is protected — external callers interact through
  * `playCards` and `discardCards` only.
- * To this end, we build the Aclass with a few "macros" that will be used to show
+ * To this end, we build the Aclass with a few values that will be used to show
  * what the min and max values ought to be.
  */
 abstract class AHand extends TCardCollection {
