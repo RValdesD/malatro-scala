@@ -6,7 +6,6 @@ import exceptions.{HandFullException, InvalidCidxException, InvalidJidxException
 import exceptions.discard.{CardInvalidListidxDiscardException, CardMaxDiscardException, CardMaxTimesDiscardException, CardMinDiscardException}
 import exceptions.play.{CardInvalidListidxPlayedException, CardMaxPlayedException, CardMaxSetPlayedException, CardMinPlayedException}
 import scala.collection.mutable.ArrayBuffer
-import scala.collection.mutable.ArrayBuffer
 
 /**
  * Abstract base for a hand, holding a mutable collection of cards and jokers.
