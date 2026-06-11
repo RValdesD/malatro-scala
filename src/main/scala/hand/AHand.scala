@@ -19,17 +19,17 @@ import scala.collection.mutable.ArrayBuffer
  * what the min and max values ought to be.
  */
 abstract class AHand extends TCardCollection {
-  private val MaxCards    = 8
-  private val MaxJokers   = 2
-  private val MaxPlays    = 3
+  private val MaxCards = 8
+  private val MaxJokers = 2
+  private val MaxPlays = 3
   private val MaxDiscards = 3
-  private val MinPlay     = 1
-  private val MaxPlay     = 5
-  private val MinDiscard  = 1
-  private val MaxDiscard  = 5
-  private val cards:  ArrayBuffer[TCard]  = ArrayBuffer()
+  private val MinPlay = 1
+  private val MaxPlay = 5
+  private val MinDiscard = 1
+  private val MaxDiscard = 5
+  private val cards: ArrayBuffer[TCard]  = ArrayBuffer()
   private val jokers: ArrayBuffer[TJoker] = ArrayBuffer()
-  private var playCount:    Int = 0
+  private var playCount: Int = 0
   private var discardCount: Int = 0
 
   /** @return how many times playCards has been called. */
