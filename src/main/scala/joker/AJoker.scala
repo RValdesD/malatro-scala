@@ -2,9 +2,10 @@ package cl.uchile.dcc
 package joker
 
 /**
- * Represents and abstract base of a joker card.
+ * Represents an abstract base for a joker card.
  *
- * Equality is based on the joker's name.
+ * Equality is based on the joker's name. Subclasses implement
+ * applyScoreFrom by calling back the matching typed method on the combination.
  *
  * @param name the name of this joker.
  */
@@ -21,3 +22,4 @@ abstract class AJoker(private val name: String) extends TJoker {
 
   override def toString: String = s"$name: $description"
 }
+
