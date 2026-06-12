@@ -31,7 +31,7 @@ abstract class ACard(val rank: Rank, val suit: Suit) extends TCard {
   def getSuit: Suit = suit
 
   override def equals(o: Any): Boolean =
-    o.isInstanceOf[TCard] && o.asInstanceOf[TCard].getName == this.getName
+    o.isInstanceOf[TCard] && o.asInstanceOf[TCard].getName.equals(this.getName)
 
   def compare(that: TCard): Int = this.getName.compare(that.getName)
 
@@ -60,5 +60,6 @@ abstract class ACard(val rank: Rank, val suit: Suit) extends TCard {
     current.addChips(rank.value)
   }
 }
+
 
 
