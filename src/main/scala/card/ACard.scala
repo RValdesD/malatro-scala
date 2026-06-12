@@ -1,7 +1,10 @@
 package cl.uchile.dcc
 package card
+
 import suit.Suit
-import cl.uchile.dcc.rank.Rank
+import joker.TJoker
+import rank.Rank
+import score.Score
 
 /**
  * Abstract base for a standard playing card.

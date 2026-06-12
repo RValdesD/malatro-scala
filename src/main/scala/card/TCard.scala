@@ -1,7 +1,10 @@
 package cl.uchile.dcc
 package card
+
 import rank.Rank
-import cl.uchile.dcc.suit.Suit
+import suit.Suit
+import joker.TJoker
+import score.Score
 
 /**
  * Represents a playing card with a rank and a suit.
