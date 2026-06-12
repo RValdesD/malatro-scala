@@ -1,10 +1,9 @@
 package cl.uchile.dcc
 package card
-import cl.uchile.dcc.rank.numbers.figure.{Jack, King, Queen}
-import cl.uchile.dcc.rank.numbers.odd.Ace
-import cl.uchile.dcc.rank.numbers.even.{Two, Four, Six, Eight, Ten}
-import cl.uchile.dcc.rank.numbers.odd.{Ace, Three, Five, Seven, Nine}
-import cl.uchile.dcc.suit.{Hearts, Spades, Clovers, Diamonds}
+
+import rank.numbers.figure.{King, Queen}
+import rank.numbers.odd.Ace
+import suit.{Clovers, Hearts, Spades}
 import munit.FunSuite
 
 /**

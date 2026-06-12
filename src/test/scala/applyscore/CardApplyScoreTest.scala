@@ -1,6 +1,15 @@
 package cl.uchile.dcc
 package applyscore
 
+import card.Card
+import score.Score
+import joker.{DeviousJoker, EvenSteven, GreedyJoker, ScaryFace}
+import rank.numbers.even.{Ten, Two}
+import rank.numbers.figure.{Jack, King, Queen}
+import rank.numbers.odd.Ace
+import suit.{Hearts, Spades}
+import munit.FunSuite
+
 /**
  * Test suite for Card applyScore.
  *
@@ -15,7 +24,7 @@ class CardApplyScoreTest extends FunSuite {
    * Verifies the base case: no joker effects, just pip value contribution.
    */
   test("Card applyScore with no jokers adds rank value as chips") {
-    val card   = new Card(new Ten, new Hearts)
+    val card = new Card(new Ten, new Hearts)
     val score  = new Score(0, 1.0)
     val result = card.applyScore(score, List())
     assertEquals(result.chips, 10)
@@ -27,8 +36,8 @@ class CardApplyScoreTest extends FunSuite {
    * Verifies that the Ace value of 11 is used rather than its order of 1.
    */
   test("Ace applyScore with no jokers adds 11 chips") {
-    val card   = new Card(new Ace, new Spades)
-    val score  = new Score(0, 1.0)
+    val card = new Card(new Ace, new Spades)
+    val score = new Score(0, 1.0)
     val result = card.applyScore(score, List())
     assertEquals(result.chips, 11)
   }
@@ -39,8 +48,8 @@ class CardApplyScoreTest extends FunSuite {
    * Verifies rank-class dispatch: EvenClass responds to EvenSteven.
    */
   test("Even-ranked card applyScore with EvenSteven adds rank value plus 4 chips") {
-    val card   = new Card(new Two, new Hearts)
-    val score  = new Score(0, 1.0)
+    val card = new Card(new Two, new Hearts)
+    val score = new Score(0, 1.0)
     val result = card.applyScore(score, List(new EvenSteven))
     assertEquals(result.chips, 6) // +4 from EvenSteven, +2 from rank value
   }
@@ -63,8 +72,8 @@ class CardApplyScoreTest extends FunSuite {
    * Verifies rank-class dispatch: FigureClass responds to ScaryFace.
    */
   test("Face card applyScore with ScaryFace adds rank value plus 30 chips") {
-    val card   = new Card(new King, new Hearts)
-    val score  = new Score(0, 1.0)
+    val card = new Card(new King, new Hearts)
+    val score = new Score(0, 1.0)
     val result = card.applyScore(score, List(new ScaryFace))
     assertEquals(result.chips, 40) // +30 from ScaryFace, +10 from rank value
   }
