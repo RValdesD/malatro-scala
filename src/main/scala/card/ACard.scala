@@ -4,10 +4,13 @@ import suit.Suit
 import cl.uchile.dcc.rank.Rank
 
 /**
- * Represents an abstract base for a standard playing card.
+ * Abstract base for a standard playing card.
  *
- * Derives its name from the rank and suit given when it is built.
- * Equality is based only on the name of the card.
+ * Derives its name from the rank and suit given at construction.
+ * Equality is based solely on the card name.
+ *
+ * Score is calculated by applying each joker through the suit,
+ * then through the rank class, then adding the rank's pip value as chips.
  *
  * @param rank the rank of this card.
  * @param suit the suit of this card.
@@ -28,5 +31,31 @@ abstract class ACard(val rank: Rank, val suit: Suit) extends TCard {
     o.isInstanceOf[TCard] && o.asInstanceOf[TCard].getName == this.getName
 
   def compare(that: TCard): Int = this.getName.compare(that.getName)
+
+  /**
+   * Applies this card's contribution to the given score.
+   *
+   * For each joker, applies suit-level scoring then rank-class-level scoring.
+   * Finally adds this card's rank value as chips.
+   *
+   * @param score  the current score.
+   * @param jokers the list of active jokers to apply.
+   * @return the updated Score.
+   */
+  def applyScore(score: Score, jokers: List[TJoker]): Score = {
+    var current = score
+    var i = 0
+    while (i < jokers.size) {
+      current = suit.applyScore(current, jokers(i))
+      i += 1
+    }
+    var j = 0
+    while (j < jokers.size) {
+      current = rank.rankClass.applyScore(current, jokers(j))
+      j += 1
+    }
+    current.addChips(rank.value)
+  }
 }
+
 

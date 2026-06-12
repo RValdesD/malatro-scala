@@ -4,29 +4,32 @@ import rank.Rank
 import cl.uchile.dcc.suit.Suit
 
 /**
- * Represents a playing card with a rank and suit.
+ * Represents a playing card with a rank and a suit.
  *
- * Cards are ordered relative to other cards through the `Ordered`
- * interface implementation.
+ * Cards are ordered and comparable by their derived name, and participate
+ * in score calculation via double dispatch with a list of jokers.
  */
-trait TCard extends Ordered[TCard]:
-
-  /** @return name of the card */
+trait TCard extends Ordered[TCard] {
+  /** @return the full name of the card, e.g. "Ace of Spades". */
   def getName: String
 
-  /** @return rank of the card */
+  /** @return the rank of this card. */
   def getRank: Rank
 
-  /** @return suit of the card */
+  /** @return the suit of this card. */
   def getSuit: Suit
 
-  /**
-   * Compares this card with another card.
-   *
-   * @param that card to compare against
-   * @return
-   *   negative value if this card is less than `that`,
-   *   zero if both cards are equal,
-   *   positive value if this card is greater than `that`
-   */
   def compare(that: TCard): Int
+
+  /**
+   * Applies this card's contribution to the given score.
+   *
+   * Applies each joker's effect through the suit, then through the rank class,
+   * then adds the rank's pip value as chips.
+   *
+   * @param score  the current score.
+   * @param jokers the list of active jokers to apply.
+   * @return the updated Score.
+   */
+  def applyScore(score: Score, jokers: List[TJoker]): Score
+}
