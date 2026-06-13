@@ -6,12 +6,19 @@ Elements
 --------------------------------
 
 score: Score trait (chips, multiplier, total)
-rank:  Rank hierarchy — Ace to King, classified as Even, Odd, or Figure
+
+rank:  Rank hierarchy - Ace to King, classified as Even, Odd, or Figure
+
 suit:  Four standard suits
-card:  TCard / ACard / Card — a playing card combining Rank and Suit
+
+card:  TCard / ACard / Card - a playing card combining Rank and Suit
+
 joker:  TJoker / AJoker and four concrete Jokers
-hand:  TCardCollection / AHand / Hand — holds cards and jokers
+
+hand:  TCardCollection / AHand / Hand - holds cards and jokers
+
 combination:  TCombination / ACombination and six poker combinations 
+
 test: mirrors the src layout, one test suite per package
 
 ----new----
