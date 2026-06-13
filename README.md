@@ -30,31 +30,54 @@ A Score has a chip count and a multiplier. total is derived as chips × multipli
 Visual Overview
 -------------------------------------
 src/main/scala
-├── card/        
+├── card/   
+
 ├── combinations/
+
 ├── exceptions/
+
 ├─────── discard/
+
 ├─────── play/
+
 ├── hand/         
+
 ├── joker/        
+
 ├── rank/
+
 ├──── classes/
+
 ├──── numbers/
+
 ├─────── even/
+
 ├─────── figure/
+
 ├─────── odd/
+
 ├── score/
+
 ├── suit/
 
 src/test/scala
+
 ├── applyscore/
+
 ├── card/
+
 ├── combinations/
+
 ├── exceptions/
+
 ├── hand/
+
 ├── joker/
+
 ├── rank/
+
 ├── score/
+
 ├── suit/
 
 Overview
@@ -89,14 +112,21 @@ Six poker combinations evaluated in priority order.
 
 Combinations (priority order)
 
-│ Priority        │ Chips │ Multiplier   │ Requirement                          │
+│ Priority         │ Chips │ Multiplier   │ Requirement                          │
 
-│ 1. StraightFlush│  100  │     ×8       │ 5 consecutive cards, same suit       │
-│ 2. Flush        │   35  │     ×4       │ 5 cards, same suit, any order        │
-│ 3. Straight     │   30  │     ×4       │ 5 consecutive cards, any suit        │
-│ 4. ThreeOfAKind │   30  │     ×3       │ 3+ cards sharing the same rank       │
-│ 5. Pair         │   10  │     ×2       │ 2+ cards sharing the same rank       │
-│ 6. HighCard     │    5  │     ×1       │ Any non-empty hand (fallback)        │
+|------------------|-------|--------------|--------------------------------------|
+
+│ 1. StraightFlush │  100  │     ×8       │ 5 consecutive cards, same suit       │
+
+│ 2. Flush         │   35  │     ×4       │ 5 cards, same suit, any order        │
+
+│ 3. Straight      │   30  │     ×4       │ 5 consecutive cards, any suit        │
+
+│ 4. ThreeOfAKind  │   30  │     ×3       │ 3+ cards sharing the same rank       │
+
+│ 5. Pair          │   10  │     ×2       │ 2+ cards sharing the same rank       │
+
+│ 6. HighCard      │    5  │     ×1       │ Any non-empty hand (fallback)        │
 
 Exceptions and proc conditions
 
