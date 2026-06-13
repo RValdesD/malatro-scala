@@ -26,7 +26,6 @@ class CombinationTest extends FunSuite:
   
   // Heart cards
   
-
   val aH     = new Card(new Ace,   new Hearts)
   val twoH   = new Card(new Two,   new Hearts)
   val threeH = new Card(new Three, new Hearts)
