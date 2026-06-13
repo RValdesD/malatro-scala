@@ -1,13 +1,12 @@
 package cl.uchile.dcc
 package card
 
+import joker.{EvenSteven, ScaryFace}
+import rank.numbers.even.{Ten, Two}
 import rank.numbers.figure.{Jack, King, Queen}
 import rank.numbers.odd.Ace
+import score.Score
 import suit.{Clovers, Hearts, Spades}
-
-import cl.uchile.dcc.joker.{EvenSteven, ScaryFace}
-import cl.uchile.dcc.rank.numbers.even.{Ten, Two}
-import cl.uchile.dcc.score.Score
 import munit.FunSuite
 
 /**

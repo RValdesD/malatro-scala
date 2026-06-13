@@ -16,7 +16,7 @@ abstract class AJoker(private val name: String) extends TJoker {
   def description: String
 
   override def equals(o: Any): Boolean =
-    o.isInstanceOf[TJoker] && o.asInstanceOf[TJoker].getName == this.getName
+    o.isInstanceOf[TJoker] && o.asInstanceOf[TJoker].getName.equals(this.getName)
 
   def compare(that: TJoker): Int = this.getName.compare(that.getName)
 

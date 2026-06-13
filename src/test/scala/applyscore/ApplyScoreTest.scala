@@ -1,15 +1,16 @@
 package cl.uchile.dcc
 package applyscore
 
-import cl.uchile.dcc.combinations.{Flush, HighCard, Pair, Straight, StraightFlush, ThreeOfAKind}
-import cl.uchile.dcc.joker.{DeviousJoker, EvenSteven, GreedyJoker, ScaryFace}
-import cl.uchile.dcc.rank.classes.{EvenClass, FigureClass, OddClass}
-import cl.uchile.dcc.score.Score
-import cl.uchile.dcc.suit.{Clovers, Diamonds, Hearts, Spades}
+import combinations.*
+import joker.{DeviousJoker, EvenSteven, GreedyJoker, ScaryFace}
+import rank.classes.{EvenClass, FigureClass, OddClass}
+import score.Score
+import suit.{Clovers, Diamonds, Hearts, Spades}
+
 import munit.FunSuite
 
 /**
- * Test suite for applyScore double dispatch.
+ * Represents a test suite for applyScore's double dispatch.
  *
  * Tests score interactions between combinations, suits, rank classes,
  * and all four joker types.

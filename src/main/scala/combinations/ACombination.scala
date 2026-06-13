@@ -9,7 +9,7 @@ import score.Score
  * Abstract base for a poker combination.
  *
  * Provides shared helper methods and default double-dispatch implementations.
- * By default each joker back-call returns the score unchanged — subclasses
+ * By default, each joker back-call returns the score unchanged — subclasses
  * override only the interactions that are meaningful for them.
  */
 abstract class ACombination extends TCombination {

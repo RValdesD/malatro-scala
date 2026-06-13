@@ -11,7 +11,7 @@ import suit.{Hearts, Spades}
 import munit.FunSuite
 
 /**
- * Test suite for Card applyScore.
+ * Represents a test suite for Card applyScore.
  *
  * Tests that a card correctly applies suit-level scoring, rank-class-level
  * scoring, and its own rank value across combinations of jokers.
