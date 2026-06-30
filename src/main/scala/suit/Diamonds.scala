@@ -2,10 +2,15 @@ package cl.uchile.dcc
 package suit
 
 /**
- * Represents the Diamonds suit.
+ * The Diamonds suit.
+ *
+ * Responds to GreedyJoker by adding +3 to the multiplier for each
+ * Diamond card played.
  */
 class Diamonds extends Suit {
-  /** Name of the suit. */
-
   val name: String = "Diamonds"
+
+  override def applyScoreFromGreedyJoker(joker: GreedyJoker, score: Score): Score =
+    score.addMultiplier(3)
 }
+

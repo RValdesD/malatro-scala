@@ -7,10 +7,12 @@ import score.Score
 import suit.Suit
 
 /**
- * Greedy Joker: adds +3 chips for every played card at the combination level.
+ * Greedy Joker: adds +3 to the multiplier for each Diamond card played.
+ *
+ * Applied at the suit level — Diamonds responds to this joker.
  */
 class GreedyJoker extends AJoker("Greedy Joker") {
-  val description: String = "Played cards each give +3 chips"
+  val description: String = "Played Diamond cards each give +3 multiplier"
 
   def applyScoreFrom(combination: TCombination, score: Score): Score =
     combination.applyScoreFromGreedyJoker(this, score)
@@ -21,3 +23,4 @@ class GreedyJoker extends AJoker("Greedy Joker") {
   def applyScoreFromRankClass(rankClass: RankClass, score: Score): Score =
     rankClass.applyScoreFromGreedyJoker(this, score)
 }
+
