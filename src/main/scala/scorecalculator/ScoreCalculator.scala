@@ -1,5 +1,9 @@
 package cl.uchile.dcc
 package scorecalculator
+import combinations.CombinationEvaluator
+import card.TCard
+import joker.TJoker
+import score.Score
 
 /**
  * Calculates the final score for a played set of cards and active jokers.

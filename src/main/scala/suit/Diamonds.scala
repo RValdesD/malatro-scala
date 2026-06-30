@@ -1,5 +1,7 @@
 package cl.uchile.dcc
 package suit
+import joker.GreedyJoker
+import score.Score
 
 /**
  * The Diamonds suit.

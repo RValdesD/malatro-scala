@@ -10,36 +10,36 @@ import suit.{Clovers, Diamonds, Hearts, Spades}
 import munit.FunSuite
 
 /**
- * Represents a test suite for applyScore's double dispatch.
+ * Test suite for applyScore double dispatch.
  *
  * Tests score interactions between combinations, suits, rank classes,
  * and all four joker types.
  */
 class ApplyScoreTest extends FunSuite {
-
-  // Combination × Joker
-
+  
   /**
-   * Tests that GreedyJoker adds +3 chips to any combination score.
+   * Tests that GreedyJoker has no effect at the combination level.
    *
-   * Verifies the GreedyJoker back-call on Pair.
+   * Verifies the default no-op back-call on Pair — GreedyJoker now
+   * operates at the suit level (Diamonds), not the combination level.
    */
-  test("Pair applyScore with GreedyJoker adds 3 chips") {
+  test("Pair applyScore with GreedyJoker leaves score unchanged") {
     val score  = new Score(10, 2.0)
     val result = new Pair().applyScore(score, new GreedyJoker)
-    assertEquals(result.chips, 13)
+    assertEquals(result.chips,      10)
     assertEquals(result.multiplier, 2.0)
   }
 
   /**
-   * Tests that GreedyJoker adds +3 chips on a Straight combination.
+   * Tests that GreedyJoker has no effect on a Straight combination either.
    *
-   * Verifies GreedyJoker works consistently across combination types.
+   * Verifies the no-op is consistent across combination types.
    */
-  test("Straight applyScore with GreedyJoker adds 3 chips") {
+  test("Straight applyScore with GreedyJoker leaves score unchanged") {
     val score  = new Score(30, 4.0)
     val result = new Straight().applyScore(score, new GreedyJoker)
-    assertEquals(result.chips, 33)
+    assertEquals(result.chips,      30)
+    assertEquals(result.multiplier, 4.0)
   }
 
   /**
@@ -99,9 +99,7 @@ class ApplyScoreTest extends FunSuite {
     assertEquals(result.chips,      30)
     assertEquals(result.multiplier, 3.0)
   }
-
-  // Suit × Joker
-
+  
   /**
    * Tests that all jokers leave suit scores unchanged by default.
    *
@@ -116,23 +114,34 @@ class ApplyScoreTest extends FunSuite {
   }
 
   /**
-   * Tests that suit applyScore returns the same score for all four suits.
+   * Tests that GreedyJoker leaves chips unchanged on non-Diamond suits.
    *
-   * Verifies the default no-op across all suit types.
+   * Verifies the default no-op for Spades and Clover.
    */
-  test("All suits applyScore with GreedyJoker leave score unchanged") {
+  test("Non-Diamond suits applyScore with GreedyJoker leave score unchanged") {
     val score = new Score(20, 3.0)
-    assertEquals(new Spades().applyScore(score, new GreedyJoker).chips,   20)
-    assertEquals(new Clovers().applyScore(score, new GreedyJoker).chips,   20)
-    assertEquals(new Diamonds().applyScore(score, new GreedyJoker).chips, 20)
+    assertEquals(new Spades().applyScore(score, new GreedyJoker).chips,      20)
+    assertEquals(new Spades().applyScore(score, new GreedyJoker).multiplier, 3.0)
+    assertEquals(new Clovers().applyScore(score, new GreedyJoker).chips,      20)
+    assertEquals(new Clovers().applyScore(score, new GreedyJoker).multiplier, 3.0)
   }
 
-  // RankClass × Joker
-
+  /**
+   * Tests that GreedyJoker adds +3 to the multiplier when applied via Diamonds.
+   *
+   * Verifies the suit-level back-call: Diamonds responds to GreedyJoker.
+   */
+  test("Diamonds applyScore with GreedyJoker adds 3 to the multiplier") {
+    val score  = new Score(20, 3.0)
+    val result = new Diamonds().applyScore(score, new GreedyJoker)
+    assertEquals(result.chips,      20)
+    assertEquals(result.multiplier, 6.0)
+  }
+  
   /**
    * Tests that EvenSteven adds +4 chips when applied to EvenClass.
    *
-   * Verifies the EvenSteven sback-call on EvenClass.
+   * Verifies the EvenSteven back-call on EvenClass.
    */
   test("EvenClass applyScore with EvenSteven adds 4 chips") {
     val score  = new Score(10, 2.0)
@@ -185,8 +194,6 @@ class ApplyScoreTest extends FunSuite {
     assertEquals(new FigureClass().applyScore(score, new GreedyJoker).chips, 10)
   }
 
-  // Immutability
-
   /**
    * Tests that applyScore returns a new Score without mutating the original.
    *
@@ -194,9 +201,9 @@ class ApplyScoreTest extends FunSuite {
    */
   test("applyScore returns a new Score and does not mutate the original") {
     val original = new Score(30, 4.0)
-    val result   = new Straight().applyScore(original, new GreedyJoker)
+    val result   = new Straight().applyScore(original, new DeviousJoker)
     assertEquals(original.chips, 30)
-    assertEquals(result.chips,   33)
+    assertEquals(result.chips,   130)
   }
 }
 

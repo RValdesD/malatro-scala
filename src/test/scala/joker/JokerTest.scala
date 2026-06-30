@@ -18,7 +18,7 @@ class JokerTest extends FunSuite {
    */
   test("GreedyJoker getName and description") {
     val greedy = new GreedyJoker
-    assertEquals(greedy.getName,     "Greedy Joker")
+    assertEquals(greedy.getName, "Greedy Joker")
     assertEquals(greedy.description, "Played Diamond cards each give +3 multiplier")
   }
 
@@ -29,7 +29,7 @@ class JokerTest extends FunSuite {
    */
   test("DeviousJoker getName and description") {
     val devious = new DeviousJoker
-    assertEquals(devious.getName,     "Devious Joker")
+    assertEquals(devious.getName, "Devious Joker")
     assertEquals(devious.description, "+100 chips if hand contains a Straight")
   }
 
@@ -40,7 +40,7 @@ class JokerTest extends FunSuite {
    */
   test("EvenSteven getName and description") {
     val steven = new EvenSteven
-    assertEquals(steven.getName,     "Even Steven")
+    assertEquals(steven.getName, "Even Steven")
     assertEquals(steven.description, "Played even-ranked cards each give +4 chips")
   }
 
@@ -51,7 +51,7 @@ class JokerTest extends FunSuite {
    */
   test("ScaryFace getName and description") {
     val scary = new ScaryFace
-    assertEquals(scary.getName,     "Scary Face")
+    assertEquals(scary.getName, "Scary Face")
     assertEquals(scary.description, "Played face cards each give +30 chips")
   }
 
@@ -74,7 +74,7 @@ class JokerTest extends FunSuite {
    */
   test("Joker equals - different jokers are not equal") {
     val greedy = new GreedyJoker
-    val scary  = new ScaryFace
+    val scary = new ScaryFace
     assert(!greedy.equals(scary))
   }
 
@@ -101,74 +101,73 @@ class JokerTest extends FunSuite {
     assert(scary.toString.contains("Scary Face"))
     assert(scary.toString.contains("Played face cards each give +30 chips"))
   }
-}
 
-/**
- * Tests the < operator: true when this joker sorts before the other.
- *
- * Covers the true branch of <.
- */
-test("Joker < returns true when this joker sorts before the other") {
-  val devious = new DeviousJoker
-  val greedy  = new GreedyJoker
-  assert(devious < greedy)
-}
+  /**
+   * Tests the < operator: true when this joker sorts before the other.
+   *
+   * Covers the true branch of <.
+   */
+  test("Joker < returns true when this joker sorts before the other") {
+    val devious = new DeviousJoker
+    val greedy = new GreedyJoker
+    assert(devious < greedy)
+  }
 
-/**
- * Tests the < operator: false when this joker sorts after the other.
- *
- * Covers the false branch of <.
- */
-test("Joker < returns false when this joker sorts after the other") {
-  val greedy  = new GreedyJoker
-  val devious = new DeviousJoker
-  assert(!(greedy < devious))
-}
+  /**
+   * Tests the < operator: false when this joker sorts after the other.
+   *
+   * Covers the false branch of <.
+   */
+  test("Joker < returns false when this joker sorts after the other") {
+    val greedy = new GreedyJoker
+    val devious = new DeviousJoker
+    assert(!(greedy < devious))
+  }
 
-/**
- * Tests the > operator: true when this joker sorts after the other.
- *
- * Covers the true branch of >.
- */
-test("Joker > returns true when this joker sorts after the other") {
-  val greedy  = new GreedyJoker
-  val devious = new DeviousJoker
-  assert(greedy > devious)
-}
+  /**
+   * Tests the > operator: true when this joker sorts after the other.
+   *
+   * Covers the true branch of >.
+   */
+  test("Joker > returns true when this joker sorts after the other") {
+    val greedy = new GreedyJoker
+    val devious = new DeviousJoker
+    assert(greedy > devious)
+  }
 
-/**
- * Tests the > operator: false when this joker sorts before the other.
- *
- * Covers the false branch of >.
- */
-test("Joker > returns false when this joker sorts before the other") {
-  val devious = new DeviousJoker
-  val greedy  = new GreedyJoker
-  assert(!(devious > greedy))
-}
+  /**
+   * Tests the > operator: false when this joker sorts before the other.
+   *
+   * Covers the false branch of >.
+   */
+  test("Joker > returns false when this joker sorts before the other") {
+    val devious = new DeviousJoker
+    val greedy = new GreedyJoker
+    assert(!(devious > greedy))
+  }
 
-/**
- * Tests the <= operator: true when jokers are equal.
- *
- * Covers the true branch of <= at equality.
- */
-test("Joker <= returns true for equal jokers") {
-  val greedyA = new GreedyJoker
-  val greedyB = new GreedyJoker
-  assert(greedyA <= greedyB)
-}
+  /**
+   * Tests the <= operator: true when jokers are equal.
+   *
+   * Covers the true branch of <= at equality.
+   */
+  test("Joker <= returns true for equal jokers") {
+    val greedyA = new GreedyJoker
+    val greedyB = new GreedyJoker
+    assert(greedyA <= greedyB)
+  }
 
-/**
- * Tests the >= operator: true when jokers are equal.
- *
- * Covers the true branch of >= at equality.
- */
-test("Joker >= returns true for equal jokers") {
-  val greedyA = new GreedyJoker
-  val greedyB = new GreedyJoker
-  assert(greedyA >= greedyB)
+  /**
+   * Tests the >= operator: true when jokers are equal.
+   *
+   * Covers the true branch of >= at equality.
+   */
+  test("Joker >= returns true for equal jokers") {
+    val greedyA = new GreedyJoker
+    val greedyB = new GreedyJoker
+    assert(greedyA >= greedyB)
+  }
 }
-
 
 
 
