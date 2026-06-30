@@ -16,7 +16,5 @@ class Pair extends ACombination {
   def isValid(cards: List[TCard]): Boolean =
     cards.size >= 2 &&
       orders(cards).groupBy(identity).values.exists(_.size >= 2)
-
-  override def applyScoreFromGreedyJoker(joker: GreedyJoker, score: Score): Score =
-    score.addChips(3)
 }
+

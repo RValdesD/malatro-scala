@@ -15,8 +15,6 @@ class HighCard extends ACombination {
   val multiplier: Double = 1.0
 
   def isValid(cards: List[TCard]): Boolean = cards.nonEmpty
-
-  override def applyScoreFromGreedyJoker(joker: GreedyJoker, score: Score): Score =
-    score.addChips(3)
 }
+
 
