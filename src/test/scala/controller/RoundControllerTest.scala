@@ -1,12 +1,13 @@
 package cl.uchile.dcc
 package controller
+import munit.FunSuite
 
 /**
  * Test suite for basic RoundController setup and accessor behaviour.
  *
  * Tests initRound, accessor methods, message handling, and score tracking.
  */
-class RoundControllerBasicTest extends FunSuite {
+class RoundControllerTest extends FunSuite {
 
   /**
    * Tests that a freshly constructed controller starts in SelectingCardsState.
