@@ -5,6 +5,7 @@ import deck.Deck
 import hand.Hand
 import scorecalculator.ScoreCalculator
 import states.{DefeatState, SelectingCardsState, TRoundState, VictoryState}
+import observer.TObserver
 
 /**
  * The main controller of a round.
