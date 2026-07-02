@@ -1,6 +1,15 @@
 package cl.uchile.dcc
 package states
 
+/**
+ * Abstract base for a round state.
+ *
+ * Provides default no-op implementations of playCards, discardCards,
+ * and onEnter, and implements equals based on state name so tests can
+ * assert on state identity without using isInstanceOf.
+ *
+ * @param controller the RoundController that owns this state.
+ */
 abstract class ARoundState(protected val controller: RoundController) extends TRoundState {
 
   def playCards(indices: List[Int]): Unit = {
