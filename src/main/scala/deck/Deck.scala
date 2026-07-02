@@ -1,6 +1,11 @@
 package cl.uchile.dcc
 package deck
 
+import card.TCard
+import cl.uchile.dcc.hand.Hand
+import scala.collection.mutable.ArrayBuffer
+import scala.util.Random
+
 /**
  * Represents a deck of cards that can be drawn from and replenished.
  *
@@ -32,7 +37,7 @@ class Deck {
    * @return the drawn card.
    * @throws NoSuchElementException if the deck is empty.
    */
-  def draw(): TCard = {
+  private def draw(): TCard = {
     val card = cards.remove(0)
     card
   }
