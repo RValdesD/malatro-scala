@@ -1,6 +1,8 @@
 package cl.uchile.dcc
 package states
 
+import controller.RoundController
+
 /**
  * The state in which the player chooses cards to play or discard.
  *

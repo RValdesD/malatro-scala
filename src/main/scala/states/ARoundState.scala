@@ -1,6 +1,8 @@
 package cl.uchile.dcc
 package states
 
+import controller.RoundController
+
 /**
  * Abstract base for a round state.
  *

@@ -1,6 +1,7 @@
 package cl.uchile.dcc
 package states
 
+import controller.RoundController
 /**
  * The state reached when plays and discards are both exhausted and the
  * target score was not met.

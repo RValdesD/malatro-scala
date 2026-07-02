@@ -1,6 +1,8 @@
 package cl.uchile.dcc
 package states
 
+import controller.RoundController
+
 /**
  * The state reached when the target score is met before moves run out.
  *
