@@ -1,5 +1,14 @@
 package cl.uchile.dcc
 package controller
+
+import card.Card
+import deck.Deck
+import hand.Hand
+import rank.numbers.figure.King
+import rank.numbers.odd.Ace
+import states.{DefeatState, SelectingCardsState, VictoryState}
+import suit.{Hearts, Spades}
+
 import munit.FunSuite
 
 /**

@@ -8,7 +8,7 @@ import rank.numbers.odd.*
 import suit.{Clovers, Diamonds, Hearts, Spades}
 import exceptions.discard.{CardInvalidListidxDiscardException, CardMaxDiscardException, CardMaxTimesDiscardException, CardMinDiscardException}
 import exceptions.play.{CardInvalidListidxPlayedException, CardMaxPlayedException, CardMaxSetPlayedException, CardMinPlayedException}
-import cl.uchile.dcc.exceptions.{HandFullException, JokerLimitException}
+import exceptions.{HandFullException, JokerLimitException}
 import munit.FunSuite
 
 /**
