@@ -37,7 +37,7 @@ class Deck {
    * @return the drawn card.
    * @throws NoSuchElementException if the deck is empty.
    */
-  private def draw(): TCard = {
+  def draw(): TCard = {
     val card = cards.remove(0)
     card
   }

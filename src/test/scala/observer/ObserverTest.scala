@@ -13,7 +13,7 @@ class CountingObserver extends TObserver {
 }
 
 /**
- * A minimal TSubject used only for testing notification behaviour.
+ * A minimal TSubject used only for testing notification behavior.
  */
 class TestSubject extends TSubject {
   def triggerNotify(): Unit = notifyObservers()

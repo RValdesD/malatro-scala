@@ -1,12 +1,21 @@
 package cl.uchile.dcc
 package controller
 
+import card.Card
+import deck.Deck
+import hand.Hand
+import rank.numbers.figure.*
+import rank.numbers.even.*
+import rank.numbers.odd.*
+import states.*
+import suit.*
+
 import munit.FunSuite
 
 /**
  * Test suite for individual TRoundState implementations in isolation.
  *
- * Tests the no-op default behaviours from ARoundState and the specific
+ * Tests the no-op default behaviors from ARoundState and the specific
  * onEnter overrides of each concrete state. State identity is checked
  * via getName.
  */

@@ -12,7 +12,7 @@ import suit.{Hearts, Spades}
 import munit.FunSuite
 
 /**
- * Test suite for basic RoundController setup and accessor behaviour.
+ * Test suite for basic RoundController setup and accessor behavior.
  *
  * Tests initRound, accessor methods, message handling, and score tracking.
  */
@@ -32,7 +32,7 @@ class RoundControllerTest extends FunSuite {
    * Tests that initRound transitions the controller into SelectingCardsState
    * and resets the total score.
    *
-   * Verifies the round setup behaviour.
+   * Verifies the round setup behavior.
    */
   test("initRound resets total score and enters SelectingCardsState") {
     val controller = new RoundController

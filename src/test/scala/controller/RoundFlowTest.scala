@@ -1,6 +1,14 @@
 package cl.uchile.dcc
 package controller
 
+import card.Card
+import deck.Deck
+import hand.Hand
+import rank.numbers.figure.*
+import rank.numbers.even.*
+import rank.numbers.odd.*
+import states.{DefeatState, SelectingCardsState, VictoryState}
+import suit.*
 import munit.FunSuite
 
 /**
@@ -17,12 +25,12 @@ class RoundFlowTest extends FunSuite {
     val hand = new Hand
     hand.addCard(new Card(new Ace,   new Spades))
     hand.addCard(new Card(new King,  new Hearts))
-    hand.addCard(new Card(new Queen, new Clover))
+    hand.addCard(new Card(new Queen, new Clovers))
     val deck = new Deck
     deck.load(List(
       new Card(new Two, new Spades),
       new Card(new Two, new Hearts),
-      new Card(new Two, new Clover),
+      new Card(new Two, new Clovers),
       new Card(new Two, new Spades),
       new Card(new Two, new Hearts)
     ))

@@ -1,6 +1,14 @@
 package cl.uchile.dcc
 package deck
 
+import card.Card
+import deck.Deck
+import hand.Hand
+import rank.numbers.figure.*
+import rank.numbers.even.*
+import rank.numbers.odd.*
+import states.*
+import suit.*
 import munit.FunSuite
 
 /**
@@ -68,7 +76,7 @@ class DeckTest extends FunSuite {
     deck.load(List(
       new Card(new Ace,   new Spades),
       new Card(new King,  new Hearts),
-      new Card(new Queen, new Clover)
+      new Card(new Queen, new Clovers)
     ))
     val hand = new Hand
     deck.drawUpTo(hand, 3)
@@ -101,7 +109,7 @@ class DeckTest extends FunSuite {
     deck.load(List(new Card(new Ace, new Spades)))
     val hand = new Hand
     hand.addCard(new Card(new King, new Hearts))
-    hand.addCard(new Card(new Queen, new Clover))
+    hand.addCard(new Card(new Queen, new Clovers))
     deck.drawUpTo(hand, 2)
     assertEquals(hand.cardCount, 2)
     assertEquals(deck.remaining, 1)
@@ -114,9 +122,9 @@ class DeckTest extends FunSuite {
    * Verifies the full DeckEmpty recovery cycle.
    */
   test("reshuffleFromDiscardPile returns discarded cards to the deck") {
-    val deck      = new Deck
-    val cardA     = new Card(new Ace,  new Spades)
-    val cardB     = new Card(new King, new Hearts)
+    val deck = new Deck
+    val cardA = new Card(new Ace,  new Spades)
+    val cardB = new Card(new King, new Hearts)
     deck.sendToDiscardPile(List(cardA, cardB))
     assertEquals(deck.isEmpty, true)
     deck.reshuffleFromDiscardPile()
