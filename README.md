@@ -25,6 +25,7 @@ exceptions:  12 distinct exception classes extending the basic Scala exception c
 whenever their respective conditions are met. Divided into a basic category, along with discard and play for visual clarity. 
 
 --new--
+
 controller: main controller for a round of malatro. It manages the round state machine and reacts 
 to notifications from hand, thus merging both State and Observer patterns in its instancing.
 
@@ -44,39 +45,69 @@ A Score has a chip count and a multiplier. total is derived as chips × multipli
 Visual Overview
 -------------------------------------
 src/main/scala
-├── card/        
+├── card/    
+
 ├── combinations/
+
 ├── controller/
+
 ├── deck/
+
 ├── exceptions/
+
 ├─────── discard/
+
 ├─────── play/
+
 ├── hand/         
+
 ├── joker/        
+
 ├── rank/
+
 ├──── classes/
+
 ├──── numbers/
+
 ├─────── even/
+
 ├─────── figure/
+
 ├─────── odd/
+
 ├── score/
+
 ├── scorecalculator/
+
 ├── states/
+
 ├── suit/
 
 src/test/scala
 ├── applyscore/
+
 ├── card/
+
 ├── combinations/
+
 ├── controller/
+
 ├── deck/
+
 ├── exceptions/
+
 ├── hand/
+
 ├── joker/
+
 ├── observer/
+
 ├── rank/
+
 ├── score/
+
 ├── scorecalculator/
+
 ├── suit/
 
 Overview
