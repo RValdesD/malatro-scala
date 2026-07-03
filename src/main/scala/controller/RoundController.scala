@@ -78,7 +78,7 @@ class RoundController extends TObserver {
   }
 
   /**
-   * Initialises the round with the given hand, deck, and target score.
+   * Initializes the round with the given hand, deck, and target score.
    *
    * @param initialHand  the starting hand for the round.
    * @param initialDeck  the deck to draw from during replenishment.

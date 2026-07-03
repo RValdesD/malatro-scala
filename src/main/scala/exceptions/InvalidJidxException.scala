@@ -2,8 +2,7 @@ package cl.uchile.dcc
 package exceptions
 
 /**
- * Thrown when attempting to remove a joker using an index that does not
- * exist in the hand.
+ * Thrown when attempting to remove a joker using an invalid index (nonexistent in hand).
  *
  * @param message a description of the error.
  */

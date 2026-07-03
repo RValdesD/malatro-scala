@@ -2,8 +2,7 @@ package cl.uchile.dcc
 package exceptions
 
 /**
- * Thrown when attempting to add cards to a hand that has reached
- * maximum capacity (8 cards).
+ * Thrown when attempting to add cards to a hand that already holds 8 (maximum).
  *
  * @param message error description.
  */

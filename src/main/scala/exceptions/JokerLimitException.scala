@@ -2,8 +2,8 @@ package cl.uchile.dcc
 package exceptions
 
 /**
- * Thrown when attempting to add a joker to a hand that already has
- * a maximum of 2 jokers.
+ * Thrown when attempting to add a joker to a hand that already holds
+ * 2 jokers (maximum).
  *
  * @param message error description.
  */

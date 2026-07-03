@@ -1,8 +1,8 @@
 package cl.uchile.dcc
 package exceptions
+
 /**
- * Thrown when attempting to remove a card using an index that does not
- * exist in the hand.
+ * Thrown when attempting to remove a card using an invalid index (nonexistent in hand).
  *
  * @param message a description of the error.
  */
