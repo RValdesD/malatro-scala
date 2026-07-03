@@ -19,7 +19,7 @@ import munit.FunSuite
 class RoundControllerTest extends FunSuite {
 
   /**
-   * Tests that a freshly constructed controller starts in SelectingCardsState.
+   * Tests that a newly constructed controller starts in SelectingCardsState.
    *
    * Verifies the default state before initRound is called.
    */
@@ -45,7 +45,7 @@ class RoundControllerTest extends FunSuite {
   /**
    * Tests that setMessage updates the message accessible via getMessage.
    *
-   * Verifies the message accessor pair.
+   * Verifies the message access pair.
    */
   test("setMessage updates the message returned by getMessage") {
     val controller = new RoundController
@@ -68,7 +68,7 @@ class RoundControllerTest extends FunSuite {
   /**
    * Tests that setSelectedIndices stores the given indices for later use.
    *
-   * Verifies the selection accessor pair.
+   * Verifies the selection access pair.
    */
   test("setSelectedIndices stores indices accessible via selectedIndices") {
     val controller = new RoundController
@@ -121,6 +121,7 @@ class RoundControllerTest extends FunSuite {
    *
    * Verifies the equals implementation distinguishes state types.
    */
+  
   test("two states with different names are not equal") {
     val controller = new RoundController
     val selecting  = new SelectingCardsState(controller)
