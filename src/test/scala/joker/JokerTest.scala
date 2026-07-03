@@ -9,6 +9,7 @@ import munit.FunSuite
  * Tests joker name and description retrieval, equality, ordering,
  * and toString formatting across all four concrete joker types.
  */
+
 class JokerTest extends FunSuite {
 
   /**
@@ -118,6 +119,7 @@ class JokerTest extends FunSuite {
    *
    * Covers the false branch of <.
    */
+  
   test("Joker < returns false when this joker sorts after the other") {
     val greedy = new GreedyJoker
     val devious = new DeviousJoker
@@ -129,6 +131,7 @@ class JokerTest extends FunSuite {
    *
    * Covers the true branch of >.
    */
+  
   test("Joker > returns true when this joker sorts after the other") {
     val greedy = new GreedyJoker
     val devious = new DeviousJoker

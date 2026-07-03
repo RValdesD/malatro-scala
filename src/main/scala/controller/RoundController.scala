@@ -50,6 +50,12 @@ class RoundController extends TObserver {
   /** @return the hand size the round replenishes up to. */
   def targetHandSize: Int = handSize
 
+  /**
+   * Sets the target hand size used during replenishment.
+   * @param size the number of cards the hand should be drawn up to.
+   */
+  def setTargetHandSize(size: Int): Unit = { handSize = size }
+
   /** @return the score calculator used to evaluate plays. */
   def scoreCalculator: ScoreCalculator = calculator
 
@@ -78,7 +84,7 @@ class RoundController extends TObserver {
   }
 
   /**
-   * Initializes the round with the given hand, deck, and target score.
+   * Initialises the round with the given hand, deck, and target score.
    *
    * @param initialHand  the starting hand for the round.
    * @param initialDeck  the deck to draw from during replenishment.
@@ -145,10 +151,11 @@ class RoundController extends TObserver {
 
   /**
    * Called by the hand when an observed state change occurs
-   * (e.g. play or discard limits reached).
+   * (for example when play or discard limits are reached).
    */
   override def update(): Unit = {
     checkRoundStatus()
   }
 }
+
 

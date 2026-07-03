@@ -23,8 +23,8 @@ class RoundFlowTest extends FunSuite {
   private def newController(targetScore: Double): RoundController = {
     val controller = new RoundController
     val hand = new Hand
-    hand.addCard(new Card(new Ace,   new Spades))
-    hand.addCard(new Card(new King,  new Hearts))
+    hand.addCard(new Card(new Ace, new Spades))
+    hand.addCard(new Card(new King, new Hearts))
     hand.addCard(new Card(new Queen, new Clovers))
     val deck = new Deck
     deck.load(List(
@@ -34,6 +34,7 @@ class RoundFlowTest extends FunSuite {
       new Card(new Two, new Spades),
       new Card(new Two, new Hearts)
     ))
+    controller.setTargetHandSize(3)
     controller.initRound(hand, deck, targetScore)
     controller
   }
@@ -139,4 +140,6 @@ class RoundFlowTest extends FunSuite {
     assertEquals(controller.state.getName, "SelectingCardsState")
   }
 }
+
+
 

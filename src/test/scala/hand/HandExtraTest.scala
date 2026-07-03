@@ -168,9 +168,9 @@ class HandExtraTest extends FunSuite {
   }
 
   /**
-   * Tests allIndicesValid for discard with a negative index.
+   * Tests allIndicesValid for a discard with a negative index.
    *
-   * Covers the same forall short-circuit branch via the discard path.
+   * Covers the same forall SC-branch via discard path.
    */
   test("discardCards with a negative index triggers allIndicesValid short-circuit") {
     val hand = new TestHand
